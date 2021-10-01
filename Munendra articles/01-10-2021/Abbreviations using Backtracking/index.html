@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>Abbreviations using Backtracking</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" integrity="sha512-8qx1DL/2Wsrrij2TWX5UzvEaYOFVndR7BogdpOyF4ocMfnfkw28qt8ULkXD9Tef0bLvh3TpnSAljDC7uyniEuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css"
+    />
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css">
+   <!--  <link rel="stylesheet" href="query.css"> -->
+
+
+  </head>
+  <body>
+  <div class="article1">
+    <div class="article-1-outerbox">
+        <div class="Circles hide-on-med-and-down">
+          <div class="c1"></div>
+          <div class="c2"></div>
+        </div>
+        <div class="topic-name">
+            <p>Abbreviations using Backtracking</p> 
+        </div>
+        <a class="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon="">
+            <i class="fa fa-chevron-down"></i>
+        </a>
+        <br><br><br><br>
+        <div class="qoute">
+            <br><br>
+            <p>
+              Don’t let the fear of losing be greater than the excitement of winning.<br>-Robert Kiyosaki
+            </p>
+            <i class="fa fa-quote-right qoute-icon"></i>
+        </div>
+    </div>
+    <div class="question-logo"><i class="fa fa-quora"></i></div>
+    <div class="ques-info">Abbreviations using Backtracking</div>
+    <div class="article-info">
+        <div class="article-divider" style="margin-top:0px ;"></div>
+        <div class="article-content">
+          <div class="content">
+            <p>Dear Reader, today we will learn Abbreviations using Backtracking </p>
+
+            <br>
+            <p><b>Important Links :</b> <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/recursion-and-backtracking/abbreviation-suing-backtracking-official/ojquestion" target="_blank">Problem Link</a>, <a href="https://youtu.be/LliQjLnbhx8" target="_blank">Question Video</a> , <a href="https://youtu.be/LliQjLnbhx8" target="_blank">Solution Video</a> </p>
+            <p>Congratulations to you on completing Level-1 successfully. We hope that your journey was smooth and you learnt a lot from it. 
+            </p>
+            <p>Don’t stop now!
+            </p>
+            <p>Since you have learned the basics of Data Structures and Algorithms, it is the best time to practice a lot of advanced problems on the topics that were covered in Level-1. How?
+            </p>
+            <p>Well, Level-2 has been prepared to serve the purpose.
+            </p>
+            <p>Now we will start with Level-2. First module of level-2 is “Conceptual Building Blocks” and we will start with its first sub module, “Recursion and Backtracking.”
+            </p>
+            <p>Moving further, in this article we will discuss about the first problem based on “Recursion and Backtracking” i.e. <b>Abbreviation using Backtracking.</b>
+            </p>
+          </div>
+        </div>
+       
+        <div class="understandingProb">
+          <div class="sub-heading-2">Understanding the problem:
+          </div>
+            <div class="content">
+              <ol>
+                <li> You are given a word.
+                </li>
+                <li>You have to generate all abbreviations of that word.
+                </li>
+              </ol>
+            
+            </div>
+              <div class="pseudoCode article-box-shadow">
+                <div class="sub-heading-2">For example:
+                </div>
+                <div class="content">
+                <p><b>Sample Input</b>-> pep</p>
+                <p><b>Sample Output</b>-> pep &nbsp; pe1&nbsp; p1p &nbsp; p2 &nbsp; 1ep&nbsp; 1e1 &nbsp;2p   3 (in different lines)</p>
+              </div>
+                
+              </div>
+              <div class="sub-heading-2">HOW?</div>
+              <div class="content">
+                <p>First of all, generate all the binaries of the length equal to the length of the input string.
+                </p>
+                <p>Binaries -
+                </p>
+                <p>000 -> pep</p>
+                <p></p>001 -> pe1
+                <p>010 -> p1p</p>
+                <p>011 -> p2</p>
+                <p>100 -> 1ep</p>
+                <p>101 -> 1e1</p>
+                <p>110 -> 2p</p>
+                <p>111 -> 3</p>
+              </div>
+                <div class="content">                
+                  <ul>
+                  <li>We can observe that whenever the bit is OFF (zero), we will use the character of the string at that position and whenever the bit is ON (one), we will count all the ON (one) bits that are together and then replace them with the count of the ON (one) bits.
+                  </li>
+                  <li>The number of abbreviations will be equal to 2^n, where n = length of the string (as the number of binaries with given n is equal to 2^n ).
+                  </li>
+                  <li>In the above example n = 3, therefore the number of abbreviations will be 8 (2^3 = 8).
+                  </li>
+                  <li>We can see that this question is like the subsequence problem, we must maintain one more variable which will count the characters that were not included in the subsequence.
+                  </li>
+                </ul>
+              </div>
+              <div class="content">
+              <p>For better understanding of the question, watch part of the video lecture.  Use recursion as suggested in the video.
+              </p>
+              <div class="youtube-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/LliQjLnbhx8?start=10&end=148" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
+              </div>
+            
+        
+        
+
+        <div class="approach" id="approach">
+          <div class="sub-heading-2">Moving On:
+          </div>
+            <div class="content">
+              <p>Let’s try to draw the recursion tree diagram for the word, “pep”. 
+                In recursion diagram, (a | b | c) a represents the test string, b represents the answer so far and c represents the count.
+                </p>
+                <div class="img"><img class="articleImages" name="Abbreviation_using_Backtracking_1 .png" alt="img" /></div>
+                <ul>
+                  <li>In the above diagram, (pep|.|0) has two options, either it can include the first p in the answer or not.
+                    If it includes the p in the answer then p is concatenated in the answer so far string and count remains 0. 
+                    </li>
+                  <li>Then at (pep|p|0), we further explore the options for character e.
+                    It has two options, either it can include e in the answer or not.
+                    If it includes e in the answer then e is concatenated in the answer so far string and count remains 0. 
+                    </li>
+                  <li>Then at (pep|pe|0), we further explore the options for character p (second p).
+                    It has two options, either it can include p in the answer or not.
+                    If it includes p in the answer then p is concatenated in the answer so far string and count remains 0. 
+                    <br><b>Since we have reached the end of the string, and the count is 0, therefore, the asf i.e. pep is the first possible output.
+                    </b></li>
+                  <li>Then we come back at (pep|pe|0) and explore the path if the second p is not added in the asf.
+                    In this case, p will not be added in psf and therefore count will become 1.
+                    <br><b>And again, we have reached the end of the string, but count is 1 this time, therefore, this count will be concatenated at the end of the asf, which will give us the next possible output, pe1.
+
+                    </b></li>
+                  <li>We have explored both the possibilities via (pep|pe|0) therefore, we go back at (pep|p|0), and see what happens if e was not added to asf. 
+                  </li>
+                  <li>First of all count becomes 1, and we reach (pep|p|1).
+                  </li>
+                  <li>Then at (pep|p|1), we further explore the options for character p (second p).
+                    It has two options, either it can include p in the answer or not.
+                    If p is to be included in the answer then we see that our previous count is not 0, so we concatenate the previous count in the asf and then second p.
+                    <br><b>Since we have reached the end of the string, and the count is 0, therefore, the asf i.e. p1p is the next possible output.
+                    </b></li>
+                    <li>Then we come back at (pep|p|1) and explore the path if the second p is not added in the asf.
+                      In this case, p will not be added in psf and therefore count will become 2.
+                      <br><b>And again, we have reached the end of the string, but count is 2 this time, therefore, this count will be concatenated at the end of the asf, which will give us the next possible output, p2.
+                      </b></li>
+                      <li>We have explored both the possibilities via (pep|p|1) therefore; we go back at (pep|p|0).
+                      </li>
+                      <li>(pep|p|0) has also explored both the options, if ‘e’ were added or not) therefore; we go back at (pep|.|0).
+                      </li>
+                      <li>At (pep|.|0), now we explore the possibilities of, if first p were not added in the asf. <br>
+                        If ‘p’ is not added in the answer so far then count becomes 1.
+                        </li>
+                      <li>Then at (pep|.|1), we further explore the options for character e.
+                        It has two options, either it can include e in the answer or not.
+                        If it includes e in the answer then e is concatenated with the current count in the answer so far string and count is set to 0. 
+                        </li>
+                      <li>Then at (pep|1e|0), we further explore the options for character p (second p).<br>
+                        It has two options, either it can include p in the answer or not.
+                        If it includes p in the answer then p is concatenated in the answer so far string and count remains 0. 
+                        </li>
+                      <li>Since we have reached the end of the string, and the count is 0, therefore, the asf i.e. 1ep is the next possible output.
+                      </li>
+                      <li>Then we come back at (pep|1e|0) and explore the path if the second p is not added in the asf.<br>
+                        In this case, p will not be added in psf and therefore count will become 1.<br>
+                        <b>And again, we have reached the end of the string, but count is 1 this time, therefore, this count will be concatenated at the end of the asf, which will give us the next possible output, 1e1.
+                        </b></li>
+                        
+                        <li>We have explored both the possibilities via (pep|1e|0) therefore, we go back at (pep|.|1), and see what happens if e was not added to asf. </li>
+                        <li>Then at (pep|.|2), we further explore the options for character p (second p).
+                          It has two options, either it can include p in the answer or not.<br>
+                          If p is to be included in the answer then we see that our previous count is not 0, so we concatenate the previous count (2) in the asf and then second p.
+                          <br><b>Since we have reached the end of the string, and the count is 0, therefore, the asf i.e. 2p is the next possible output.
+                          </b></li>
+                          
+                          <li>Then we come back at (pep|.|2) and explore the path if the second p is not added in the asf.<br>
+                            In this case, p will not be added in psf and therefore count will become 3.<br><b>And again, we have reached the end of the string, but count is 3 this time, therefore, this count will be concatenated at the end of the asf (empty at this stage), which will give us the next possible output, 3.
+                            </b>
+                            </li>
+                            <li>We have explored both the possibilities via (pep|.|2) therefore; we go back at (pep|.|1).
+                            </li>
+                            <li>(pep|.|1) has also explored both the options, if ‘e’ were added or not) therefore; we go back at (pep|.|0).
+                            </li>
+                            <li>At (pep|.|0), we have explored both the possibilities that is if first p were not added in the asf. 
+                            </li>
+                      </ul>
+            </div>  
+            <div class="content">
+              <p>For a much better and clearer understanding of the recursion diagram, watch part of the lecture video.
+              </p>
+              <div class="youtube-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/LliQjLnbhx8?start=150&end=923" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <p>Let’s try to code this!</p>
+            </div>
+            
+        </div> 
+
+        <div class='codeEditor' id="1">
+            <div class='editorialCode'>
+              import java.util.*;
+
+              public class Main {
+
+                public static void solution(String str, String asf,int count, int pos){
+                  if(pos == str.length()){
+                      if(count > 0){
+                          asf += count;
+                      }
+                      System.out.println(asf);
+                      return;
+                  }
+                  solution(str, asf + (count > 0 ? count : "" ) + str.charAt(pos), 0, pos + 1); //yes call -> including curr char
+                  solution(str, asf, count + 1, pos + 1); //not including curr char -> just converting letters to a number
+              }
+          
+              }
+
+            </div>
+            <pre class='output'>
+            </pre>
+            <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+            <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+        </div>
+        <div class="sub-heading-2">Code Explained:
+        </div>
+        <div class="content">
+          <ul>
+            <li>SIGNATURE of the function:<br>
+              <b>public static void solution (String str, String asf, int count, int pos) </b><br>
+              str -Input string
+              asf  - String that stores the answer so far, that is till index pos at    different levels.
+              count  - store the count of characters that were not included in the subsequence just before the pos index.
+              pos  - current index.
+              </li>
+            <li>We will make two calls at each level  -
+            </li>
+            <li>Call Yes  - Include the character at index pos in asf
+            </li>
+            <li>Call No -  Do not include the character at index pos in asf.
+            </li>
+            <li>When we make a NO CALL, we increase the pos variable and not include anything in the asf. We will also increase the count variable as we are not including the current character in answer.
+            </li>
+            <li>When we make a YES CALL, we will check whether the count is more than zero. If the count is more than zero we will add the count and the character at pos index else we will just add the character at pos index. Also, we will make the count variable equal to zero. We are adding the count to the asf as we have to include the characters that we did not add earlier.
+            </li>
+            <li>We will make a YES call before NO call because of the order of output.
+            </li>
+            <li>YES CALL: <b>solution (str, asf + (count > 0 ? count : "" ) + str.charAt(pos), 0, pos + 1);</b>
+            </li>
+            <li>NO CALL: <b>solution (str, asf, count + 1, pos + 1);</b>
+            </li>
+            <li><b>Base case:</b> We will return when pos will be equal to length of the string. Before returning we will print the asf. If the count will be greater than zero, we will append the count to the asf before printing it.</li>
+          </ul>
+          <p>Watch this part of the video lecture for better understanding. 
+          </p>
+          <div class="youtube-video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/LliQjLnbhx8?start=924&end=1101" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        
+
+
+
+         <div class="analysis">
+          <div class="sub-heading-1">Complexities:</div>
+            <div class="sub-heading-2">Time Complexity:</div>
+            <div class="content">
+              <p><b> O(2^N)</b></p>
+              <p>Where N = length of the input string.
+                As we are making two calls Yes / No at every index until our pos index is equal to the length of the string, therefore the complexity will be exponential and equal to 2 ^ N.
+                </p>
+              
+            </div>
+            <div class="sub-heading-2">Space Complexity:
+            </div>
+            <div class="content">
+              <p><b> O(N)</b></p>
+              <p>Where N = length of the input string.
+                We can observe that the maximum depth of the recursion tree any time is N. Therefore, the max space occupied at any time will be equal to the N. In the post order, the occupied space in the recursion stack will be freed so the space occupied will not exceed N.
+                </p>
+              
+            </div>
+        </div>
+        </div>
+        <div class='codeEditor' id="2">
+          <div class='editorialCode'>
+            import java.io.*;
+            import java.util.*;
+             
+            public class Main 
+            {
+               public static void solution(String str, String asf,int count, int pos){
+                    if(pos == str.length()){
+                        if(count > 0){
+                            asf += count;
+                        }
+                        System.out.println(asf);
+                        return;
+                    }
+                    solution(str, asf + (count > 0 ? count : "" ) + str.charAt(pos), 0, pos + 1); 
+                    solution(str, asf, count + 1, pos + 1); 
+                }
+             
+                public static void main(String[] args) {
+                    Scanner scn = new Scanner(System.in);
+                    String str = scn.nextLine();
+                    solution(str,"",0,0);
+                }
+            }
+            
+          </div>
+          <pre class='output'>
+          </pre>
+          <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+          <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+      </div>
+      <div class="content">
+        <p>We hope that this article was helpful. If somehow you are finding it difficult to understand this problem then we advise you to watch our video lecture of this problem. 
+        </p>
+        <div class="youtube-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/LliQjLnbhx8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p>Trust me it will just get easier to understand after you have watched the solution video.
+        </p>
+        <p>You can contact us via our website. Doubts, suggestions and feedback are always welcomed.
+        </p>
+        <p>It is also advised that you follow the sequence of modules and questions which is there on our website. 
+        </p>
+        <p>Keep practicing more and more problems daily. Meditate enough on each step of each problem</p>
+        <p>All the best for an exciting future!<br>
+          Happy Coding!
+          </p>
+      </div>
+
+      </div>
+
+        <div class="article-tags">
+
+          <div class="tag">Arrays </div>
+
+        </div>
+        <div class="author">
+          <div class="sub-heading-2">Author:
+                <span>  Nikita Aggarwal
+                </span>
+          </div>
+        </div>
+        <div class="share-options">
+            <p class="share-options-heading">Share this article</p>
+            <div class="">
+                <div class="span"><i class="fa fa-facebook"></i>
+                    <p class="social-media-name">Facebook</p>
+                </div>
+                <div class="span"><i class="fa fa-twitter"></i>
+                    <p class="social-media-name">Twitter</p>
+                </div>
+                <div class="span"><i class="fa fa-instagram"></i>
+                    <p class="social-media-name">Instagram</p>
+                </div>
+                <div class="span"><i class="fa fa-whatsapp"></i>
+                    <p class="social-media-name">Whatsapp</p>
+                </div>
+                <div class="span"><i class="fa fa-linkedin"></i>
+                    <p class="social-media-name">Linkedin</p>
+                </div>
+            </div>
+        </div>
+        <div class="lineBreak" style="margin-top: 30px;"></div>
+        <div class="img-zoom-div">
+            <div class="img-zoom-div-close-btn"><i class="fa fa-times"></i></div>
+            <div class="img-zoom-div-img"><img src="" alt="" /></div>
+        </div>
+      </div>
+</div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css" />
+<link
+    href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap"
+    rel="stylesheet">
+</div>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="./closeZoomImgDiv.js"></script>
+    <script src="./bookmark.js"></script>
+    <script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+
+
+    var aceEditorInstance = ace.edit( "editor1" );
+
+
+aceEditorInstance.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 2
+  var aceEditorInstance2 = ace.edit( "editor2" );
+
+
+aceEditorInstance2.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance2.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 3
+  var aceEditorInstance3 = ace.edit( "editor3" );
+
+
+aceEditorInstance3.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance3.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+/**
+ * Global variable to store the ids of the status of the current dragged ace editor.
+ */
+window.draggingAceEditor = {};
+
+function makeAceEditorResizable(editor){
+    var id_editor = editor.container.id;
+    var id_dragbar = '#' + id_editor + '_dragbar';
+    var id_wrapper = '#' + id_editor + '_wrapper';
+    var wpoffset = 0;
+    window.draggingAceEditor[id_editor] = false;
+
+    $(id_dragbar).mousedown(function(e) {
+        e.preventDefault();
+
+        window.draggingAceEditor[id_editor] = true;
+    
+        var _editor = $('#' + id_editor);
+        var top_offset = _editor.offset().top - wpoffset;
+    
+        // Set editor opacity to 0 to make transparent so our wrapper div shows
+        _editor.css('opacity', 0);
+    
+        // handle mouse movement
+        $(document).mousemove(function(e){
+            var actualY = e.pageY - wpoffset;
+            // editor height
+            var eheight = actualY - top_offset;
+            
+            // Set wrapper height
+            $(id_wrapper).css('height', eheight);
+            
+            // Set dragbar opacity while dragging (set to 0 to not show)
+            $(id_dragbar).css('opacity', 0.15);
+        });
+    });
+    
+    $(document).mouseup(function(e){
+        if (window.draggingAceEditor[id_editor])
+        {
+            var ctx_editor = $('#' + id_editor);
+    
+            var actualY = e.pageY - wpoffset;
+            var top_offset = ctx_editor.offset().top - wpoffset;
+            var eheight = actualY - top_offset;
+    
+            $( document ).unbind('mousemove');
+            
+            // Set dragbar opacity back to 1
+            $(id_dragbar).css('opacity', 1);
+            
+            // Set height on actual editor element, and opacity back to 1
+            ctx_editor.css('height', eheight).css('opacity', 1);
+            
+            // Trigger ace editor resize()
+            editor.resize();
+
+            window.draggingAceEditor[id_editor] = false;
+        }
+    });
+}
+
+
+makeAceEditorResizable(aceEditorInstance);
+
+
+
+</script>
+
+<script>
+    var run = document.getElementsByClassName('run')[0]
+    var input = document.getElementById('custom_input')
+    var language = document.getElementById('language')
+    
+
+    run.addEventListener('click', function(){
+        
+        var unformatted = document.getElementById('editor1').innerText
+        var formatted = unformatted.split("\n")
+        var final = []
+        formatted.forEach(ele=>{
+            if(!parseInt(ele))
+            final.push(ele)
+        
+        })
+        final = final.join(' ')
+        
+        var input_text = input.value
+        var final_input_text = input_text.split('\n').join(' ')
+
+
+         
+        //language
+        const languageValue = language.options[language.selectedIndex].value;
+        //const text = language.options[language.selectedIndex].text;
+        
+        //fetch statement here...
+
+        // fetch('/compileCode',{
+        //     method:'post',
+        //     headers:{
+        //         'Content-Type':'appliation/json'
+        //     },
+        //     body:JSON.stringify({
+        //         input:final_input_text,
+        //         code:final,
+        //         language:languageValue
+        //     })
+        // })
+
+             
+        alert(JSON.stringify({"code":final, "testcase":final_input_text, "language": languageValue}))
+        }
+    )
+</script>
+<script>
+    //tabbar btn control
+    function tabBar(index){
+       
+        if(index===0){ 
+            // show input textarea
+            document.getElementById('custom_output').style.display='none'
+            document.getElementById('custom_input').style.display='block'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 0.479)'
+        }
+        else{
+            // show output textarea
+            document.getElementById('custom_output').style.display='block'
+            document.getElementById('custom_input').style.display='none'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 0.479)'
+        }
+    }
+    
+</script>
+  </body>
+</html>
