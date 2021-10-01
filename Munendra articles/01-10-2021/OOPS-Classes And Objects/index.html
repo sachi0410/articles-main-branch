@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>OOPS – Classes And Objects
+    </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" integrity="sha512-8qx1DL/2Wsrrij2TWX5UzvEaYOFVndR7BogdpOyF4ocMfnfkw28qt8ULkXD9Tef0bLvh3TpnSAljDC7uyniEuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css"
+    />
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css">
+   <!--  <link rel="stylesheet" href="query.css"> -->
+
+
+  </head>
+  <body>
+  <div class="article1">
+    <div class="article-1-outerbox">
+        <div class="Circles hide-on-med-and-down">
+          <div class="c1"></div>
+          <div class="c2"></div>
+        </div>
+        <div class="topic-name">
+            <p>OOPS – Classes And Objects
+            </p> 
+        </div>
+        <a class="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon="">
+            <i class="fa fa-chevron-down"></i>
+        </a>
+        <br><br><br><br>
+        <div class="qoute">
+            <br><br>
+            <p>
+              Will it be easy? Maybe not! 
+              Will it be worth it? Absolutely Yes!
+              
+            </p>
+            <i class="fa fa-quote-right qoute-icon"></i>
+        </div>
+    </div>
+    <div class="question-logo"><i class="fa fa-quora"></i></div>
+    <div class="ques-info">OOPS – Classes And Objects
+    </div>
+    <div class="article-info">
+        <div class="article-divider" style="margin-top:0px ;"></div>
+        <div class="article-content">
+          <div class="content">
+            <p>Hello readers! 
+            </p><br>
+            <p>Welcome back, in this article we will discuss an important topic of OOPS (Object Oriented Programming) i.e. Classes And Objects. </p>
+            <p><b>Important Links :</b> <a href="https://www.pepcoding.com/resources/online-java-foundation/stacks-and-queues/oopscno/video" target="_blank">Problem link</a> </p>
+           
+           </div>
+        </div>
+       <div class="approach" id="approach">
+          <div class="sub-heading-2">Approach:
+          </div>
+            <div class="content">
+              <p>This is going to be a very basic discussion around Classes and Objects. And it is always better to understand a new concept practically. So let's define a ‘class’ ‘Person’. 
+              </p>
+                <div class="img"><img class="articleImages" name="oops_classes_and_objects_1.png" alt="img" /></div>
+                <p>Now this class can have data members which can help us to define the characteristics of a person like a person’s name, age, etc. 
+                </p>
+                <div class="img"><img class="articleImages" name="oops_classes_and_objects_2.png" alt="img" /></div>
+                <p>In addition to this, a class can also have ‘functions’, like a function ‘sayhi’, using which a line can be printed, “abc [abc’s age] says hi”.
+
+                </p>
+                <div class="img"><img class="articleImages" name="oops_classes_and_objects_3.png" alt="img" /></div>
+                <p>Now using this ‘person’ class we can create objects. Let's say we create an object ‘p1’. After that we can set the age of the object ‘p1’ to ‘10’ and it’s name to ‘A’. Finally we can call p1.saysHi() which will print, “A [10] says hi”.
+                </p>
+                <div class="img"><img class="articleImages" name="oops_classes_and_objects_4.png" alt="img" /></div>
+                <p>Similarly we can create another object ‘p2’. And set its name and age as well. Then we can it’s saysHi() function too.
+                </p>
+                <div class="img"><img class="articleImages" name="oops_classes_and_objects_5.png" alt="img" /></div>
+                <p>Let’s try to code this.
+                </p>
+            </div> 
+            <div class='codeEditor' id="1">
+              <div class='editorialCode'>
+                import java.util.*;
+ 
+                public class Main {
+                 
+                  //class Person
+                  public static class Person {
+                    //data members
+                    int age;               
+                    String name;
+                    
+                    //function
+                    void saysHi() {
+                      System.println(name + "[" + age + "] says hi");
+                    }
+                  }	
+                 
+                  public static void main(String[] args) {
+                    //object p1
+                    Person p1 = new Person();
+                    p1.age = 10;
+                    p1.name = "A";
+                    p1.saysHi();
+                 
+                    //object p2
+                    Person p2 = new Person();
+                    p2.age = 20;
+                    p2.name = "B";
+                    p2.saysHi();
+                 
+                  }
+                }
+                
+              </div>
+              <pre class='output'>
+              </pre>
+              <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+              <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+          </div>
+            
+            <div class="content">
+              <p>For better understanding, watch part of the lecture video.
+
+              </p>
+              <div class="youtube-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/TTE-CIBFL9w?start=1&end=297" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              
+            </div>
+            <div class="sub-heading-2">“Encapsulation is putting together data members and functions in an entity called ‘class’.”
+
+            </div>
+            <div class="content">
+              <p>Let’s take a look at memory and analyse, how does that work and what changes happen in the memory stack and heap.
+              </p>
+              <p>First of all on creating object p1, a new reference was created in the memory stack which stores some address say 4k and because p1 was a new object therefore some space was allocated to it at address 4k which has space for storing p1’s age and name.
+                On setting p1.age to 10, the age of p1 is set to 10 in the memory at address 4k. Similarly on setting p1.name to ‘A’, the name of p1 is set to ‘A’ in the memory. 
+                And on calling p1.saysHi(), “A [10] says hi” will be printed at address 4k.
+                </p>
+                <p>Similarly work is done in memory corresponding to object p2. 
+                </p>
+                <div class="img"><img class="articleImages" name="oops_classes_and_objects_6.png" alt="img" /></div>
+                <p>At this point it is also important to understand that ‘object’ can be a misleading term at times while we understand the memory allocation of a new object. Instead we can use terms, reference and instance.<br>
+
+                  So p1 and p2 in the memory stack are reference whereas memory allocated at 4k and 5k are instances.<br>
+                  
+                  Now let’s say we create one more object p3 and this time instead of defining a new person, initialize it to p1.<br>
+                  
+                  So in the memory stack, the address that will get stored corresponding to p3 would be the same as that of p1 which is 4k and here no new instance will be  created instead the p3 will point towards the same instance as that of p1 which is stored at 4k in the memory
+                  </p>
+                  <div class="img"><img class="articleImages" name="oops_classes_and_objects_7.png" alt="img" /></div>
+                  <p>Now, if we set the age of p3 then what do you think would happen?
+                    See, if at this point you set the age of p3 to let say 30 then the instance created at 4k will get updated. And the age at 4k will change from 10 to 30.
+                    
+                    </p>
+                    <div class="img"><img class="articleImages" name="oops_classes_and_objects_8.png" alt="img" /></div>
+                    <p>If we now call p3.saysHi() then the output will be, “A [30] says hi”. In fact the output for p1.saysHi() will also be the same.
+                    </p>
+                    <p>For better understanding, watch [5:00- 9:14] part of the lecture video.
+                    </p>
+                    <div class="youtube-video">
+                      <iframe width="560" height="315" src="https://www.youtube.com/embed/TTE-CIBFL9w?start=300&end=581" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+            </div>
+
+            <div class='codeEditor' id="2">
+              <div class='editorialCode'>
+                import java.util.*;
+ 
+                public class Main {
+                 
+                  public static class Person {
+                    int age;
+                    String name;
+                 
+                    void saysHi() {
+                      System.println(name + "[" + age + "] says hi");
+                    }
+                  }
+                  public static void main(String[] args) {
+                 
+                    Person p1 = new Person();
+                    p1.age = 10;
+                    p1.name = "A";
+                    p1.saysHi();
+                 
+                    Person p2 = new Person();
+                    p2.age = 20;
+                    p2.name = "B";
+                    p2.saysHi();
+                 
+                  }
+                }
+                
+  
+              </div>
+              <pre class='output'>
+              </pre>
+              <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+              <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+          </div>
+        </div> 
+      </div>
+      
+      <div class="content">
+        
+        <p>Happy coding!
+
+          </p>
+      </div>
+
+      </div>
+
+        <div class="article-tags">
+
+          <div class="tag">Classes and Objects  </div>
+          <div class="tag">OOPS </div>
+          <div class="tag">Encapsulation</div>
+        </div>
+        <div class="author">
+          <div class="sub-heading-2">Author:
+                <span>  Nikita Aggarwal
+                </span>
+          </div>
+        </div>
+        <div class="share-options">
+            <p class="share-options-heading">Share this article</p>
+            <div class="">
+                <div class="span"><i class="fa fa-facebook"></i>
+                    <p class="social-media-name">Facebook</p>
+                </div>
+                <div class="span"><i class="fa fa-twitter"></i>
+                    <p class="social-media-name">Twitter</p>
+                </div>
+                <div class="span"><i class="fa fa-instagram"></i>
+                    <p class="social-media-name">Instagram</p>
+                </div>
+                <div class="span"><i class="fa fa-whatsapp"></i>
+                    <p class="social-media-name">Whatsapp</p>
+                </div>
+                <div class="span"><i class="fa fa-linkedin"></i>
+                    <p class="social-media-name">Linkedin</p>
+                </div>
+            </div>
+        </div>
+        <div class="lineBreak" style="margin-top: 30px;"></div>
+        <div class="img-zoom-div">
+            <div class="img-zoom-div-close-btn"><i class="fa fa-times"></i></div>
+            <div class="img-zoom-div-img"><img src="" alt="" /></div>
+        </div>
+      </div>
+</div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css" />
+<link
+    href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap"
+    rel="stylesheet">
+</div>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="./closeZoomImgDiv.js"></script>
+    <script src="./bookmark.js"></script>
+    <script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+
+
+    var aceEditorInstance = ace.edit( "editor1" );
+
+
+aceEditorInstance.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 2
+  var aceEditorInstance2 = ace.edit( "editor2" );
+
+
+aceEditorInstance2.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance2.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 3
+  var aceEditorInstance3 = ace.edit( "editor3" );
+
+
+aceEditorInstance3.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance3.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+/**
+ * Global variable to store the ids of the status of the current dragged ace editor.
+ */
+window.draggingAceEditor = {};
+
+function makeAceEditorResizable(editor){
+    var id_editor = editor.container.id;
+    var id_dragbar = '#' + id_editor + '_dragbar';
+    var id_wrapper = '#' + id_editor + '_wrapper';
+    var wpoffset = 0;
+    window.draggingAceEditor[id_editor] = false;
+
+    $(id_dragbar).mousedown(function(e) {
+        e.preventDefault();
+
+        window.draggingAceEditor[id_editor] = true;
+    
+        var _editor = $('#' + id_editor);
+        var top_offset = _editor.offset().top - wpoffset;
+    
+        // Set editor opacity to 0 to make transparent so our wrapper div shows
+        _editor.css('opacity', 0);
+    
+        // handle mouse movement
+        $(document).mousemove(function(e){
+            var actualY = e.pageY - wpoffset;
+            // editor height
+            var eheight = actualY - top_offset;
+            
+            // Set wrapper height
+            $(id_wrapper).css('height', eheight);
+            
+            // Set dragbar opacity while dragging (set to 0 to not show)
+            $(id_dragbar).css('opacity', 0.15);
+        });
+    });
+    
+    $(document).mouseup(function(e){
+        if (window.draggingAceEditor[id_editor])
+        {
+            var ctx_editor = $('#' + id_editor);
+    
+            var actualY = e.pageY - wpoffset;
+            var top_offset = ctx_editor.offset().top - wpoffset;
+            var eheight = actualY - top_offset;
+    
+            $( document ).unbind('mousemove');
+            
+            // Set dragbar opacity back to 1
+            $(id_dragbar).css('opacity', 1);
+            
+            // Set height on actual editor element, and opacity back to 1
+            ctx_editor.css('height', eheight).css('opacity', 1);
+            
+            // Trigger ace editor resize()
+            editor.resize();
+
+            window.draggingAceEditor[id_editor] = false;
+        }
+    });
+}
+
+
+makeAceEditorResizable(aceEditorInstance);
+
+
+
+</script>
+
+<script>
+    var run = document.getElementsByClassName('run')[0]
+    var input = document.getElementById('custom_input')
+    var language = document.getElementById('language')
+    
+
+    run.addEventListener('click', function(){
+        
+        var unformatted = document.getElementById('editor1').innerText
+        var formatted = unformatted.split("\n")
+        var final = []
+        formatted.forEach(ele=>{
+            if(!parseInt(ele))
+            final.push(ele)
+        
+        })
+        final = final.join(' ')
+        
+        var input_text = input.value
+        var final_input_text = input_text.split('\n').join(' ')
+
+
+         
+        //language
+        const languageValue = language.options[language.selectedIndex].value;
+        //const text = language.options[language.selectedIndex].text;
+        
+        //fetch statement here...
+
+        // fetch('/compileCode',{
+        //     method:'post',
+        //     headers:{
+        //         'Content-Type':'appliation/json'
+        //     },
+        //     body:JSON.stringify({
+        //         input:final_input_text,
+        //         code:final,
+        //         language:languageValue
+        //     })
+        // })
+
+             
+        alert(JSON.stringify({"code":final, "testcase":final_input_text, "language": languageValue}))
+        }
+    )
+</script>
+<script>
+    //tabbar btn control
+    function tabBar(index){
+       
+        if(index===0){ 
+            // show input textarea
+            document.getElementById('custom_output').style.display='none'
+            document.getElementById('custom_input').style.display='block'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 0.479)'
+        }
+        else{
+            // show output textarea
+            document.getElementById('custom_output').style.display='block'
+            document.getElementById('custom_input').style.display='none'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 0.479)'
+        }
+    }
+    
+</script>
+  </body>
+</html>
