@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>OOPS Swap Game-3</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" integrity="sha512-8qx1DL/2Wsrrij2TWX5UzvEaYOFVndR7BogdpOyF4ocMfnfkw28qt8ULkXD9Tef0bLvh3TpnSAljDC7uyniEuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css"
+    />
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css">
+   <!--  <link rel="stylesheet" href="query.css"> -->
+
+
+  </head>
+  <body>
+  <div class="article1">
+    <div class="article-1-outerbox">
+        <div class="Circles hide-on-med-and-down">
+          <div class="c1"></div>
+          <div class="c2"></div>
+        </div>
+        <div class="topic-name">
+            <p>OOPS Swap Game-3</p> 
+        </div>
+        <a class="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon="">
+            <i class="fa fa-chevron-down"></i>
+        </a>
+        <br><br><br><br>
+        <div class="qoute">
+            <br><br>
+            <p>
+            "Always remember that you are absolutely unique. Just like everyone else."
+             <br>
+               ~Margaret Mead
+            </p>
+            <i class="fa fa-quote-right qoute-icon"></i>
+        </div>
+    </div>
+    <div class="question-logo"><i class="fa fa-quora"></i></div>
+    <div class="ques-info">OOPS Swap Game-3</div>
+    <div class="article-info">
+        <div class="article-divider" style="margin-top:0px ;"></div>
+        <div class="article-content">
+          <div class="content">
+             <p>Welcome back, dear reader. We hope you are doing well. Hope that you have watched the <a href="https://www.youtube.com/watch?v=TTE-CIBFL9w" target="_blank"> Classes and Objects Video </a> and have understood the introduction to OOPS in Java. We also hope that you watched the OOPS Swap Game-1 and OOPS Swap Game-2 Videos or have gone through the articles regarding the same as we are going to do the same here. </p> 
+                 <div class="youtube-video">
+               <iframe width="560" height="315" src="https://www.youtube.com/embed/TTE-CIBFL9w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+</div>
+</div>
+    <div class="understandingProb">
+          <div class="sub-heading-1">Understanding problem: </div>
+            <div class="content">
+                <p>So, we will give you a code again and you have to try to predict the output of the code and try to come up with the full explanation behind the answer that you think to be correct. The code is given below:</p>
+            </div>
+        </div>
+            <div class='codeEditor' id=>
+            <div class='editorialCode'>
+            import java.util.*;
+ 
+public class Main {
+ 
+    public static class Person {
+        int age;
+        String name;
+ 
+        void saysHi() {
+            System.out.println(name + "[" + age + "] says hi");
+        }
+    }
+ 
+    public static void main(String[] args) throws Exception {
+ 
+        Person p1 = new Person();
+        p1.age = 10;
+        p1.name = "A";
+ 
+        Person p2 = new Person();
+        p2.age = 20;
+        p2.name = "B";
+ 
+        p1.saysHi();
+        p2.saysHi();
+ 
+        swap3(p1, p2);
+ 
+        p1.saysHi();
+        p2.saysHi();
+    }
+ 
+    public static void swap3(Person psn1, Person psn2) {
+        psn1 = new Person();
+ 
+        int age = psn1.age;
+        psn1.age = psn2.age;
+        psn2.age = age;
+ 
+        psn2 = new Person();
+ 
+        String name = psn1.name;
+        psn1.name = psn2.name;
+        psn2.name = name;
+    }
+ 
+}
+
+
+          </div>
+            <pre class='output'>
+            </pre>
+            <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+            <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+        </div>
+        
+       
+        <div class="approach" id="approach">
+          <div class="sub-heading-1">Approach :</div>
+            <div class="content">
+              <p>So, dear reader, did you get the answer? Let us see what the output for this code should be:</p>
+              <div class="img"><img class="articleImages" name="oops_swap_game_3_1.png" alt="img" /> </div>
+              <p>So, this is some weird output. What happened here? Let us try to understand it with the help of memory diagrams. Have a look at the image shown below:</p>
+              <div class="img"><img class="articleImages" name="oops_swap_game-3_2.png" alt="img" /> </div>
+              <p>So, the above image shows the references created in the stack and the objects created in the heap memory for the main() method of the program.<br>After this a call is made to the saysHi() method for both objects p1 and p2 which we are not showing in the diagram. Let us now move directly to the swpa2() method.<br>Here, psn1 catches p1 and psn2 catches p2. This means that psn1 and psn2 are also the references to the objects at which p1 and p2 are references respectively.</p>
+              <div class="img"><img class="articleImages" name="oops_swap_game-3_3.png" alt="img" /> </div>
+              <p>Now, the first line inside the swap3() function is: psn1 = new person();<br>This means that we have to make a new object and assign the psn1 reference variable to it as shown in the figure below:</p>
+              <div class="img"><img class="articleImages" name="oops_swap_game-3_4.png" alt="img" /> </div>
+              <p>So, we have assigned the reference psn1 to a new object. Whenever we create a new Object then the integers have the default value 0 and the strings have the default value null.<br>Now, we move to the next line which is int age = psn1.age.<br>Since the age data member of the object to which psn1 is a reference is 0, the age variable will store 0.</p>
+              <div class="img"><img class="articleImages" name="oops_swap_game-3_5.png" alt="img" /> </div>
+              <p>Now, the next line is: psn1.age = psn2.age. So, the age value=20 will be stored in the object to which psn1 is a reference to i.e. the object at address 7k.</p>
+              <div class="img"><img class="articleImages" name="oops_swap_game-3_6.png" alt="img" /> </div>
+              <p>So, now the next line of the code is psn2.age = age. So, the age of the object of which psn2 is a reference i.e. the object with address 5k will now have the age=0.</p>
+              <div class="img"><img class="articleImages" name="oops_swap_game-3_7.png" alt="img" /> </div>
+              <p>Now, the next line of the code is: psn2 = new Person();<br>So, the psn2 reference will now point at a new object a shown in the diagram below:</p>
+              <div class="img"><img class="articleImages" name="oops_swap_game-3_8.png" alt="img" /> </div>
+              <p>Now the next line of the code is: String name = psn1.name;<br>So, a variable name will be declared with the same name as that of the reference variable to which psn1 is a reference to. Hence the name will be name = null.</p>
+              <div class="img"><img class="articleImages" name="oops_swap_game-3_9.png" alt="img" /> </div>
+              <p>The next line of the code is: psn1.name  = psn2.name. So, the name value=null will be stored in the object to which psn1 is a reference to. Why? Think!<br>(We are not showing any diagram as psn1.name was already null)<br>Next, the last line of the code for the swap3() method says: psn2.name  = name. hence, null will be stored in the name field of the object referenced by psn2. Since it is already null, we are not showing it in a diagram.<br>Now, we have completed the entire function. So, the values related to the swap3() method will be removed from the stack.<br>Also, the objects created in the heap will be deleted by the garbage collector of Java.</p>
+               <div class="img"><img class="articleImages" name="oops_swap_game-3_10.png" alt="img" /> </div>
+               <p>So, this is what happened finally. The age and the name of the object to which p1 is a reference remained the same. This is because as soon as we entered the method swap3(), we created a new object and changed the reference. So, all the changes were made to that object and not to the original object.<br>The age of object to which p2 is a reference changed because the psn2 reference was not changed while swapping the ages but it was changed before swapping the names and hence the name did not change.<br>So, dear reader, we hope that you have understood this completely. If you still have any doubts regarding this, refer to the <a href="https://www.youtube.com/watch?v=TTE-CIBFL9w" target="_blank"> complete solution video to clear all of them. </a></p>
+               <div class="youtube-video">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/GLkE2wSNiYM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+               <p>With this, we have completed our discussion of this Swap game and we have come to the end of our Swap Game series. Hope you enjoyed it.<br> Keep practicing and working hard on your coding skills. Till then, Happy Coding!!</p>
+              
+
+        </div>
+        </div>
+    <div class="article-tags">
+          <div class="tag"> Arrays</div>
+          
+          
+        </div>
+        <div class="author">
+          <div class="sub-heading-2">Author:
+                  <span> Guneet Malhotra </span>
+              
+          </div>
+        </div>
+        <div class="share-options">
+            <p class="share-options-heading"> Share this article</p>
+            <div class="">
+                <div class="span"><i class="fa fa-facebook"></i>
+                    <p class="social-media-name">Facebook</p>
+                </div>
+                <div class="span"><i class="fa fa-twitter"></i>
+                    <p class="social-media-name">Twitter</p>
+                </div>
+                <div class="span"><i class="fa fa-instagram"></i>
+                    <p class="social-media-name">Instagram</p>
+                </div>
+                <div class="span"><i class="fa fa-whatsapp"></i>
+                    <p class="social-media-name">Whatsapp</p>
+                </div>
+                <div class="span"><i class="fa fa-linkedin"></i>
+                    <p class="social-media-name">Linkedin</p>
+                </div>
+            </div>
+        </div>
+        <div class="lineBreak" style="margin-top: 30px;"></div>
+        <div class="img-zoom-div">
+            <div class="img-zoom-div-close-btn"><i class="fa fa-times"></i></div>
+            <div class="img-zoom-div-img"><img src="" alt="" /></div>
+        </div>
+      </div>
+</div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css" />
+<link
+    href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap"
+    rel="stylesheet">
+</div>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="./closeZoomImgDiv.js"></script>
+    <script src="./bookmark.js"></script>
+    <script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+
+
+    var aceEditorInstance = ace.edit( "editor1" );
+
+
+aceEditorInstance.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 2
+  var aceEditorInstance2 = ace.edit( "editor2" );
+
+
+aceEditorInstance2.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance2.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 3
+  var aceEditorInstance3 = ace.edit( "editor3" );
+
+
+aceEditorInstance3.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance3.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+/**
+ * Global variable to store the ids of the status of the current dragged ace editor.
+ */
+window.draggingAceEditor = {};
+
+function makeAceEditorResizable(editor){
+    var id_editor = editor.container.id;
+    var id_dragbar = '#' + id_editor + '_dragbar';
+    var id_wrapper = '#' + id_editor + '_wrapper';
+    var wpoffset = 0;
+    window.draggingAceEditor[id_editor] = false;
+
+    $(id_dragbar).mousedown(function(e) {
+        e.preventDefault();
+
+        window.draggingAceEditor[id_editor] = true;
+    
+        var _editor = $('#' + id_editor);
+        var top_offset = _editor.offset().top - wpoffset;
+    
+        // Set editor opacity to 0 to make transparent so our wrapper div shows
+        _editor.css('opacity', 0);
+    
+        // handle mouse movement
+        $(document).mousemove(function(e){
+            var actualY = e.pageY - wpoffset;
+            // editor height
+            var eheight = actualY - top_offset;
+            
+            // Set wrapper height
+            $(id_wrapper).css('height', eheight);
+            
+            // Set dragbar opacity while dragging (set to 0 to not show)
+            $(id_dragbar).css('opacity', 0.15);
+        });
+    });
+    
+    $(document).mouseup(function(e){
+        if (window.draggingAceEditor[id_editor])
+        {
+            var ctx_editor = $('#' + id_editor);
+    
+            var actualY = e.pageY - wpoffset;
+            var top_offset = ctx_editor.offset().top - wpoffset;
+            var eheight = actualY - top_offset;
+    
+            $( document ).unbind('mousemove');
+            
+            // Set dragbar opacity back to 1
+            $(id_dragbar).css('opacity', 1);
+            
+            // Set height on actual editor element, and opacity back to 1
+            ctx_editor.css('height', eheight).css('opacity', 1);
+            
+            // Trigger ace editor resize()
+            editor.resize();
+
+            window.draggingAceEditor[id_editor] = false;
+        }
+    });
+}
+
+
+makeAceEditorResizable(aceEditorInstance);
+
+
+
+</script>
+
+<script>
+    var run = document.getElementsByClassName('run')[0]
+    var input = document.getElementById('custom_input')
+    var language = document.getElementById('language')
+    
+
+    run.addEventListener('click', function(){
+        
+        var unformatted = document.getElementById('editor1').innerText
+        var formatted = unformatted.split("\n")
+        var final = []
+        formatted.forEach(ele=>{
+            if(!parseInt(ele))
+            final.push(ele)
+        
+        })
+        final = final.join(' ')
+        
+        var input_text = input.value
+        var final_input_text = input_text.split('\n').join(' ')
+
+
+         
+        //language
+        const languageValue = language.options[language.selectedIndex].value;
+        //const text = language.options[language.selectedIndex].text;
+        
+        //fetch statement here...
+
+        // fetch('/compileCode',{
+        //     method:'post',
+        //     headers:{
+        //         'Content-Type':'appliation/json'
+        //     },
+        //     body:JSON.stringify({
+        //         input:final_input_text,
+        //         code:final,
+        //         language:languageValue
+        //     })
+        // })
+
+             
+        alert(JSON.stringify({"code":final, "testcase":final_input_text, "language": languageValue}))
+        }
+    )
+</script>
+<script>
+    //tabbar btn control
+    function tabBar(index){
+       
+        if(index===0){ 
+            // show input textarea
+            document.getElementById('custom_output').style.display='none'
+            document.getElementById('custom_input').style.display='block'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 0.479)'
+        }
+        else{
+            // show output textarea
+            document.getElementById('custom_output').style.display='block'
+            document.getElementById('custom_input').style.display='none'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 0.479)'
+        }
+    }
+    
+</script>
+  </body>
+</html>
