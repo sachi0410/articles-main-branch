@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>N Queens – Branch and Bound</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" integrity="sha512-8qx1DL/2Wsrrij2TWX5UzvEaYOFVndR7BogdpOyF4ocMfnfkw28qt8ULkXD9Tef0bLvh3TpnSAljDC7uyniEuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css"
+    />
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css">
+   <!--  <link rel="stylesheet" href="query.css"> -->
+
+
+  </head>
+  <body>
+  <div class="article1">
+    <div class="article-1-outerbox">
+        <div class="Circles hide-on-med-and-down">
+          <div class="c1"></div>
+          <div class="c2"></div>
+        </div>
+        <div class="topic-name">
+            <p>N Queens – Branch and Bound</p> 
+        </div>
+        <a class="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon="">
+            <i class="fa fa-chevron-down"></i>
+        </a>
+        <br><br><br><br>
+        <div class="qoute">
+            <br><br>
+            <p>
+              A goal should scare you a little, and excite you a lot.<br>- Joe Vitale
+
+            </p>
+            <i class="fa fa-quote-right qoute-icon"></i>
+        </div>
+    </div>
+    <div class="question-logo"><i class="fa fa-quora"></i></div>
+    <div class="ques-info">N Queens – Branch and Bound</div>
+    <div class="article-info">
+        <div class="article-divider" style="margin-top:0px ;"></div>
+        <div class="article-content">
+          <div class="content">
+            <p>Welcome Reader! </p>
+
+            <br>
+            <p>In this article we will discuss about the first problem based on “Recursion and Backtracking” i.e. N Queens - Branch and Bound.</p>
+            
+            <p>We have already discussed this problem, N Queens, earlier in level-1. But here we will use the Branch and Bound approach.<br>
+              If you want then you can try and solve that one first, so that you can get a broader perspective to understand this problem using a better approach which is Branch and Bound.
+              </p>
+            <p>Before you move any further, it is advised that you give this problem a fair try.   </p>
+            <p><b>Important Links :</b> <a href="https://www.pepcoding.com/resources/online-java-foundation/recursion-backtracking/n-queens-official/ojquestion" target="_blank">Problem Link</a>, <a href="https://youtu.be/prZJ0hA43NU" target="_blank">Question Video</a> , <a href="https://youtu.be/05y82cP3bJo" target="_blank">Solution Video</a> </p>
+             <p>Let’s jump to the problem.</p>              
+         
+
+           </div>
+        </div>
+       
+        <div class="understandingProb">
+          <div class="sub-heading-2">Understanding the problem:
+          </div>
+            <div class="content">
+             <p>In this problem you are given a number n, the size of a chess board.
+              You are required to place n number of queens in the n * n cells of board such that no queen can kill another, by completing the body of “printNQueens()” function - without changing signature - to calculate and print all safe configurations of n-queens.
+              </p>
+              <p><b>Note:</b></p>
+              <ul>
+                <li>Queens Kill at distance in all 8 directions
+                </li>
+                <li>The online judge can't force you to write the function recursively but that is what the spirit of the question is.
+                </li>
+                <li>Write recursive and not iterative logic. The purpose of the question is to aid learning recursion, branch and bound technique and not test you.
+                </li>
+              </ul>
+            <p><b>Sample Input:
+            </b> 4</p>
+            <p><b>Sample Output: </b>0-1, 1-3, 2-0, 3-2.0-2, 1-0, 2-3, 3-1.</p>
+            <div class="img"><img class="articleImages" name="N-Queens_1.png" alt="img" /></div>
+            <ul>
+              <li>The input is 4, which implies that (n=4), the size of a chess board is 4. We need to place 4 queens in the 4*4 cells of board such that no queen can kill each other.
+              </li>
+              <li>There are 2 ways to place the 4 queens in 4*4 cells of board. </li>
+              <li>First way is represented by green circle (* sign), when queens are placed at 0-1, 1-3, 2-0, 3-2.
+              </li>
+              <li>Second way is represented by red circle (# sign), when queens are placed at 0-2, 1-0, 2-3, 3-1.
+              </li>         
+            </ul>
+            <p>For better understanding of the question, watch part of the video lecture.  Use recursion as suggested in the video.
+            </p>
+            <div class="youtube-video">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/yvt0emtFiIE?start=6&end=46" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            </div>
+           </div>
+         <div class="approach" id="approach">
+          <div class="sub-heading-2">Moving On:
+          </div>
+            <div class="content">
+          <ul>
+            <li>First of all, let’s go through the rules of queen movement in chess:
+            </li>
+            <ol>
+              <li>She can move horizontally.
+              </li>
+              <li>She can move vertically.
+              </li>
+              <li>She can move diagonally in both directions.
+              </li>
+            </ol>
+            <li>Like previously, we will be solving this with recursion but with a new and better way.
+            </li>
+            <li>At each level of recursion, we will increase the current row. We do not need to check the row as at each row only one queen can be placed. To check for columns and diagonals, we will create three new Boolean array:
+            </li>
+          </ul>
+          <ol>
+            <li><b>Cols(column) array 
+            </b>to check whether the current column is occupied by any other queen or not. If it is, we cannot place our queen on that column. Its size will be equal to N as there are N columns.</li>
+            <li><b>Ndaig(normal) array</b> to check whether the current normal diagonal is occupied or not. If it is, we cannot place our queen on that box. Its size will be equal to 2*N - 1 as there are 2 * N - 1 diagonals in N X N board.
+            </li>
+            <li><b>Rdiag(reverse) array</b> to check whether the current reverse diagonal is occupied or not. If it is, we cannot place our queen on that box. Its size will be equal to 2*N - 1 as there are 2 * N - 1 diagonals in N X N board.
+            </li>
+           
+          </ol>
+          <ul>
+            <li>Let the n be 4.
+            </li>
+          </ul>
+          <p>For better understanding of the question, watch part of the video lecture.  Use recursion as suggested in the video.
+          </p>
+          <div class="youtube-video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/yvt0emtFiIE?start=62&end=300" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+
+            </div>  
+            <div class="sub-heading-2">NDIAG
+            </div>
+            <div class="content">
+              <ul>
+                <li>   Here every box is filled with the sum of row index and col index.
+                </li>
+                <div class="img"><img class="articleImages" name="N-Queens_2.png" alt="img" /></div>
+                <li>  Thus, we can see that every line represents the same number and they represent the normal diagonal. Therefore, the size of ndiag is 2*N - 1.</li>
+                <li>   Therefore, the element with index (0,1) will be represented as the 1st index of the ndiag array. If there is a queen on (0,1) then no queen can be placed on (1,0) too, therefore my marking 1st index of ndiag we are restricting any other queen on (1,0) too.
+                </li>
+                <li>Similarly, by marking any index of ndiag as true, we are restricting any other queen on the same diagonal.
+                </li>
+              </ul>
+            </div>
+            <div class="sub-heading-2">RDIAG
+            </div>
+            <div class="content">
+              <ul>
+                <li>  Here every element is filled with the difference of row and col index.
+                </li>
+                <div class="img"><img class="articleImages" name="N-Queens_2.png" alt="img" /></div>
+                <li> Thus, we can see that every line represents the same item and they represent the reverse diagonal. As the number of lines is 2*N - 1. Therefore, the size of reverse diagonal is 2*N - 1.
+                </li>
+                <li>   As we cannot represent negative numbers as index of an array therefore we will add N - 1 to every element of 2D array to bring it in range of [0,2*N-1].
+                </li>
+                <li> New 2D array:
+                </li>
+                <div class="img"><img class="articleImages" name="N-Queens_2.png" alt="img" /></div>
+                <li>  Therefore, the element with index (0,1) will be represented as the 2nd index of ndiag. If there is a queen on (0,1) then no queen can be placed on (1,2) and (2,3) too, therefore my marking 2nd index of rdiag we are restricting any queen on (1,2) and (2,3) too.
+                </li>
+                <li> Similarly, by marking any index of rdiag as true, we are restricting any other queen on the same diagonal.
+                </li>
+                <div class="img"><img class="articleImages" name="N-Queens_2.png" alt="img" /></div>
+                <li>This array shows that index 2 of ndiag is storing the value for (2,0), (1,1) and (0,2) elements of the matrix.
+                </li>
+              </ul>
+              <p>For better understanding of the question, watch part of the video lecture.  Use recursion as suggested in the video.
+              </p>
+              <div class="youtube-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/yvt0emtFiIE?start=326&end=1256" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="sub-heading-1">Signature of the function:
+            </div>
+            <div class="sub-heading-2">public static void solution(boolean[][] board, int row, boolean[] cols, boolean[] ndiag, boolean[] rdiag, String asf)</div>
+            <div class="content">
+              <ul>
+                <li><b>board -</b>N X N board. It is marked as true wherever the queen is placed.
+                </li>
+                <li><b>row -</b>current row.
+                </li>
+                <li><b>cols - </b>array of size N. It is used to keep a tab of columns that are already occupied by the queen placed before the current queen.
+                </li>
+                <li><b>ndiag  - </b>array of size 2 * N - 1. It is used to keep a tab of normal diagonals that are already occupied by the queen placed before the current queen.
+                </li>
+                <li><b>rdiag  - </b>array of size 2 * N - 1. It is used to keep a tab of reverse diagonals that are already occupied by the queen placed before the current queen.
+                </li>
+                <li><b>asf -</b> string to store the positions where queens are placed.</li>
+              </ul>
+              <p><b>Let’s try to code this!</b>
+              </p>
+            </div>
+            
+        </div> 
+
+        <div class='codeEditor' id="1">
+            <div class='editorialCode'>
+              import java.util.*;
+
+              public class Main {
+
+                  public static void solution(boolean[][] board, int row, boolean[] cols, boolean[] ndiag
+                  , boolean[] rdiag, String asf) {
+                  if (row == board.length) {
+                  System.out.println(asf + ".");
+                  return;
+                  }
+
+                  for (int col = 0; col < board.length; col++) {
+                  if (!cols[col] && !ndiag[row + col] && !rdiag[row - col + board.length - 1]) {
+                  board[row][col] = true;
+                  cols[col] = true;
+                  ndiag[row + col] = true;
+                  rdiag[row - col + board.length - 1] = true;
+                  solution(board, row + 1, cols, ndiag, rdiag, asf + row + "-" + col + ", ");
+                  board[row][col] = false;
+                  cols[col] = false;
+                  ndiag[row + col] = false;
+                  rdiag[row - col + board.length - 1] = false;
+                  }
+                  }
+                  }
+
+
+            </div>
+            <pre class='output'>
+            </pre>
+            <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+            <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+        </div>
+        <div class="sub-heading-2">Code Explained:
+        </div>
+        <div class="content">
+          <ul>
+            <li>At each level of recursion, we will:<br>
+              <b>use a for loop to go through every column. 
+              </b>
+              </li>
+            <li>If the<b> cols[col] == false and rdiag[row - col + N - 1] ==  false && ndiag[col + row] == false ,</b>it means that there is no other queen that can kill the current queen .Therefore, we will <b>place our queen on that box and mark the cols[col] , rdiag[ row -  col + N - 1] and ndiag[col+ row] as true </b>in preorder(VISIT).
+            </li>
+            <li>We will then <b> make a call for the next row.</b>
+            </li>
+            <li>We will<b> unvisit the visited cols, rdiag and ndiag in post order and mark cols[col], ndiag[row+col] and rdiag[row - col + N - 1] as false.</b>
+            </li>
+            <li><b>Base Case: When the row will be equal to the length of board, we will print our asf and return.
+            </b></li>
+          </ul>
+
+          <p> Watch this of the video lecture for better understanding. 
+          </p>
+          <div class="youtube-video">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/yvt0emtFiIE?start=1271&end=1686" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        
+
+
+
+         <div class="analysis">
+          <div class="sub-heading-2">Complexities:O()</div>
+            <div class="sub-heading-2">Time Complexity: O()</div>
+            <div class="content">
+             <p><b>Complete Code:
+            </b></p>
+              
+            </div>
+            <!-- <div class="sub-heading-2">Space Complexity:
+            </div>
+            <div class="content">
+              <p><b> O(N)</b></p>
+              <p>Where N = length of the input string.
+                We can observe that the maximum depth of the recursion tree any time is N. Therefore, the max space occupied at any time will be equal to the N. In the post order, the occupied space in the recursion stack will be freed so the space occupied will not exceed N.
+                </p>
+              
+            </div> -->
+        </div>
+        </div>
+        <div class='codeEditor' id="2">
+          <div class='editorialCode'>
+            import java.io.*;
+            import java.util.*;
+             
+            public class Main {
+             
+              public static void solution(boolean[][] board, int row, boolean[] cols, boolean[] ndiag, boolean[] rdiag, String asf) {
+                if (row == board.length) {
+                  System.out.println(asf + ".");
+                  return;
+                }
+             
+                for (int col = 0; col < board.length; col++) {
+                  if (!cols[col] && !ndiag[row + col] && !rdiag[row - col + board.length - 1]) {
+                    board[row][col] = true;
+                    cols[col] = true;
+                    ndiag[row + col] = true;
+                    rdiag[row - col + board.length - 1] = true;
+                    solution(board, row + 1, cols, ndiag, rdiag, asf + row + "-" + col + ", ");
+                    board[row][col] = false;
+                    cols[col] = false;
+                    ndiag[row + col] = false;
+                    rdiag[row - col + board.length - 1] = false;
+                  }
+                }
+              }
+             
+              public static void main(String[] args) throws Exception {
+                Scanner scn = new Scanner(System.in);
+                int n = scn.nextInt();
+                boolean[][] board = new boolean[n][n];
+                boolean[] cols = new boolean[n];
+                boolean[] ndiag = new boolean[2 * n - 1];
+                boolean[] rdiag = new boolean[2 * n - 1];
+                solution(board, 0, cols, ndiag, rdiag, "");
+              }
+             
+            }  
+            
+            
+          </div>
+          <pre class='output'>
+          </pre>
+          <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+          <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+      </div>
+      <div class="content">
+        <p>We hope that this article was helpful. If somehow you are finding it difficult to understand this problem then we advise you to watch our video lecture of this problem. 
+        </p>
+        <div class="youtube-video">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/LliQjLnbhx8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p>We hope that this article was helpful. If somehow you are finding it difficult to understand this problem then we advise you to watch our video lecture of this problem. <br>
+          Trust me it will just get easier to understand after you have watched the solution video.<br>
+          You can contact us via our website. Doubts, suggestions and feedback are always welcomed.<br>
+          It is also advised that you follow the sequence of modules and questions which is there on our website.<br> 
+          Keep practicing more and more problems daily. Meditate enough on each step of each problem.
+          
+        </p>
+        <!-- <p>You can contact us via our website. Doubts, suggestions and feedback are always welcomed.
+        </p>
+        <p>It is also advised that you follow the sequence of modules and questions which is there on our website. 
+        </p>
+        <p>Keep practicing more and more problems daily. Meditate enough on each step of each problem</p> -->
+        <p>All the best for an exciting future!<br>
+          Happy Coding!
+          </p>
+      </div>
+
+      </div>
+
+        <div class="article-tags">
+
+          <div class="tag">Arrays </div>
+
+        </div>
+        <div class="author">
+          <div class="sub-heading-2">Author:
+                <span>  Nikita Aggarwal
+                </span>
+          </div>
+        </div>
+        <div class="share-options">
+            <p class="share-options-heading">Share this article</p>
+            <div class="">
+                <div class="span"><i class="fa fa-facebook"></i>
+                    <p class="social-media-name">Facebook</p>
+                </div>
+                <div class="span"><i class="fa fa-twitter"></i>
+                    <p class="social-media-name">Twitter</p>
+                </div>
+                <div class="span"><i class="fa fa-instagram"></i>
+                    <p class="social-media-name">Instagram</p>
+                </div>
+                <div class="span"><i class="fa fa-whatsapp"></i>
+                    <p class="social-media-name">Whatsapp</p>
+                </div>
+                <div class="span"><i class="fa fa-linkedin"></i>
+                    <p class="social-media-name">Linkedin</p>
+                </div>
+            </div>
+        </div>
+        <div class="lineBreak" style="margin-top: 30px;"></div>
+        <div class="img-zoom-div">
+            <div class="img-zoom-div-close-btn"><i class="fa fa-times"></i></div>
+            <div class="img-zoom-div-img"><img src="" alt="" /></div>
+        </div>
+      </div>
+</div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css" />
+<link
+    href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap"
+    rel="stylesheet">
+</div>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="./closeZoomImgDiv.js"></script>
+    <script src="./bookmark.js"></script>
+    <script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+
+
+    var aceEditorInstance = ace.edit( "editor1" );
+
+
+aceEditorInstance.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 2
+  var aceEditorInstance2 = ace.edit( "editor2" );
+
+
+aceEditorInstance2.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance2.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 3
+  var aceEditorInstance3 = ace.edit( "editor3" );
+
+
+aceEditorInstance3.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance3.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+/**
+ * Global variable to store the ids of the status of the current dragged ace editor.
+ */
+window.draggingAceEditor = {};
+
+function makeAceEditorResizable(editor){
+    var id_editor = editor.container.id;
+    var id_dragbar = '#' + id_editor + '_dragbar';
+    var id_wrapper = '#' + id_editor + '_wrapper';
+    var wpoffset = 0;
+    window.draggingAceEditor[id_editor] = false;
+
+    $(id_dragbar).mousedown(function(e) {
+        e.preventDefault();
+
+        window.draggingAceEditor[id_editor] = true;
+    
+        var _editor = $('#' + id_editor);
+        var top_offset = _editor.offset().top - wpoffset;
+    
+        // Set editor opacity to 0 to make transparent so our wrapper div shows
+        _editor.css('opacity', 0);
+    
+        // handle mouse movement
+        $(document).mousemove(function(e){
+            var actualY = e.pageY - wpoffset;
+            // editor height
+            var eheight = actualY - top_offset;
+            
+            // Set wrapper height
+            $(id_wrapper).css('height', eheight);
+            
+            // Set dragbar opacity while dragging (set to 0 to not show)
+            $(id_dragbar).css('opacity', 0.15);
+        });
+    });
+    
+    $(document).mouseup(function(e){
+        if (window.draggingAceEditor[id_editor])
+        {
+            var ctx_editor = $('#' + id_editor);
+    
+            var actualY = e.pageY - wpoffset;
+            var top_offset = ctx_editor.offset().top - wpoffset;
+            var eheight = actualY - top_offset;
+    
+            $( document ).unbind('mousemove');
+            
+            // Set dragbar opacity back to 1
+            $(id_dragbar).css('opacity', 1);
+            
+            // Set height on actual editor element, and opacity back to 1
+            ctx_editor.css('height', eheight).css('opacity', 1);
+            
+            // Trigger ace editor resize()
+            editor.resize();
+
+            window.draggingAceEditor[id_editor] = false;
+        }
+    });
+}
+
+
+makeAceEditorResizable(aceEditorInstance);
+
+
+
+</script>
+
+<script>
+    var run = document.getElementsByClassName('run')[0]
+    var input = document.getElementById('custom_input')
+    var language = document.getElementById('language')
+    
+
+    run.addEventListener('click', function(){
+        
+        var unformatted = document.getElementById('editor1').innerText
+        var formatted = unformatted.split("\n")
+        var final = []
+        formatted.forEach(ele=>{
+            if(!parseInt(ele))
+            final.push(ele)
+        
+        })
+        final = final.join(' ')
+        
+        var input_text = input.value
+        var final_input_text = input_text.split('\n').join(' ')
+
+
+         
+        //language
+        const languageValue = language.options[language.selectedIndex].value;
+        //const text = language.options[language.selectedIndex].text;
+        
+        //fetch statement here...
+
+        // fetch('/compileCode',{
+        //     method:'post',
+        //     headers:{
+        //         'Content-Type':'appliation/json'
+        //     },
+        //     body:JSON.stringify({
+        //         input:final_input_text,
+        //         code:final,
+        //         language:languageValue
+        //     })
+        // })
+
+             
+        alert(JSON.stringify({"code":final, "testcase":final_input_text, "language": languageValue}))
+        }
+    )
+</script>
+<script>
+    //tabbar btn control
+    function tabBar(index){
+       
+        if(index===0){ 
+            // show input textarea
+            document.getElementById('custom_output').style.display='none'
+            document.getElementById('custom_input').style.display='block'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 0.479)'
+        }
+        else{
+            // show output textarea
+            document.getElementById('custom_output').style.display='block'
+            document.getElementById('custom_input').style.display='none'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 0.479)'
+        }
+    }
+    
+</script>
+  </body>
+</html>
