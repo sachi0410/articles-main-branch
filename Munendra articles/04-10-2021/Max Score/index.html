@@ -57,14 +57,12 @@
         <div class="article-content">
           <div class="content">
             <p>Welcome back, dear reader. So, how is it going? In this article we will discuss the problem MAX SCORE.  Have a look at the sample input to understand the problem.
-            </p>
-            <div class="img"><img class="articleImages" name="max-score_1.png" alt="img" /></div><br>
-            
-            <p><b>Important Links :</b> <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/recursion-and-backtracking/max-score-official/ojquestion" target="_blank">Problem Link</a>, <a href="https://youtu.be/XtmW3a8Q9M4" target="_blank">Question Video</a> , <a href="https://youtu.be/XtmW3a8Q9M4" target="_blank">Solution Video</a> </p><br>
+            </p><br>
+          <p><b>Important Links :</b> <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/recursion-and-backtracking/max-score-official/ojquestion" target="_blank">Problem Link</a>, <a href="https://youtu.be/XtmW3a8Q9M4" target="_blank">Question Video</a> , <a href="https://youtu.be/XtmW3a8Q9M4" target="_blank">Solution Video</a> </p><br>
              
             <p>Wait, what is this weird input and what do we have to do in this question? Let’s see. 
             </p>              
-         
+            <div class="img"><img class="articleImages" name="max-score_1.png" alt="img" /></div>
 
            </div>
         </div>
@@ -104,38 +102,9 @@
           <div class="sub-heading-2">Method:
           </div>
             <div class="content">
-          <!-- <ul>
-            <li>First of all, let’s go through the rules of queen movement in chess:
-            </li>
-            <ol>
-              <li>She can move horizontally.
-              </li>
-              <li>She can move vertically.
-              </li>
-              <li>She can move diagonally in both directions.
-              </li>
-            </ol>
-            <li>Like previously, we will be solving this with recursion but with a new and better way.
-            </li>
-            <li>At each level of recursion, we will increase the current row. We do not need to check the row as at each row only one queen can be placed. To check for columns and diagonals, we will create three new Boolean array:
-            </li>
-          </ul>
-          <ol>
-            <li><b>Cols(column) array 
-            </b>to check whether the current column is occupied by any other queen or not. If it is, we cannot place our queen on that column. Its size will be equal to N as there are N columns.</li>
-            <li><b>Ndaig(normal) array</b> to check whether the current normal diagonal is occupied or not. If it is, we cannot place our queen on that box. Its size will be equal to 2*N - 1 as there are 2 * N - 1 diagonals in N X N board.
-            </li>
-            <li><b>Rdiag(reverse) array</b> to check whether the current reverse diagonal is occupied or not. If it is, we cannot place our queen on that box. Its size will be equal to 2*N - 1 as there are 2 * N - 1 diagonals in N X N board.
-            </li>
-           
-          </ol>
-          <ul>
-            <li>Let the n be 4.
-            </li>
-          </ul> -->
           <p>Let us start by applying the general idea of what can be done. Firstly, we should be clear with what we have to do. We have to give the maximum score out of the valid subsets of words. So, we know that we have to make subsets during this process. Now, there are two possibilities for every word. Either we can include it in the subset or we cannot. This can also be thought of as every word as two choices, whether to come into the subset or not.
           </p>
-          div class="img"><img class="articleImages" name="max-score_3.png" alt="img" /></div>
+          <div class="img"><img class="articleImages" name="max-score_3.png" alt="img" /></div>
           <p>So, for every word, we will make two recursive calls. One which tells us that this word is not included and the other which tells us that this word is included.
           </p>
           <p><b>So, we are going to make two calls. One call will give us the score of the subset if the word which we are at (in the words array) is not included and the other call will tell us the score of the subset which includes the current word too.
@@ -143,21 +112,12 @@
           <p>So, let us have a look at the procedure and let us try to devise the code simultaneously. </p>
           <p>To understand every possible case, let us say our index “idx” is currently as the position shown.
           </p>
-          div class="img"><img class="articleImages" name="max-score_4.png" alt="img" /></div>
+          <div class="img"><img class="articleImages" name="max-score_4.png" alt="img" /></div>
           <p>Dear reader, you need to understand carefully what all we have done when we are at the current position shown in the diagram. We have already visited two words and have calculated the scores of the subsets including and without including that word. This means that currently, we already have some subset to which we are deciding to add the word “dad”.
           </p>
           <p>So, we already have a score. Now, we want to see whether we should include the word dad or not. So, the first call is very simple. We simply move our index one step ahead and do not include the score of this word into our previous score.</p>
           <p>So, in the recursive function signature given in the question, we are given an array of words and a frequency array and a score array of size 26 and the index that we are currently in. (The frequency array is also of size 26 and has the frequency of each character that we can have at every index)
           </p>
-
-
-          <!-- <p>For better understanding of the question, watch part of the video lecture.  Use recursion as suggested in the video.
-          </p>
-
-          <div class="youtube-video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/yvt0emtFiIE?start=62&end=300" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div> -->
-
             </div>  
             <div class="sub-heading-2">Why not include this Word?
             </div>
@@ -180,25 +140,6 @@
 
             </div>
             <div class="content">
-              <!-- <ul>
-                <li>  Here every element is filled with the difference of row and col index.
-                </li>
-                <div class="img"><img class="articleImages" name="N-Queens_2.png" alt="img" /></div>
-                <li> Thus, we can see that every line represents the same item and they represent the reverse diagonal. As the number of lines is 2*N - 1. Therefore, the size of reverse diagonal is 2*N - 1.
-                </li>
-                <li>   As we cannot represent negative numbers as index of an array therefore we will add N - 1 to every element of 2D array to bring it in range of [0,2*N-1].
-                </li>
-                <li> New 2D array:
-                </li>
-                <div class="img"><img class="articleImages" name="N-Queens_2.png" alt="img" /></div>
-                <li>  Therefore, the element with index (0,1) will be represented as the 2nd index of ndiag. If there is a queen on (0,1) then no queen can be placed on (1,2) and (2,3) too, therefore my marking 2nd index of rdiag we are restricting any queen on (1,2) and (2,3) too.
-                </li>
-                <li> Similarly, by marking any index of rdiag as true, we are restricting any other queen on the same diagonal.
-                </li>
-                <div class="img"><img class="articleImages" name="N-Queens_2.png" alt="img" /></div>
-                <li>This array shows that index 2 of ndiag is storing the value for (2,0), (1,1) and (0,2) elements of the matrix.
-                </li>
-              </ul> -->
               <p>Let us recall our situation by looking at img-4 again.
               </p>
               <div class="img"><img class="articleImages" name="max-score_6.png" alt="img" /></div>
@@ -314,24 +255,8 @@
             <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
         </div>
 
-        <!-- <div class="sub-heading-2">Code Explained:
-        </div> -->
+       
         <div class="content">
-          <!-- <ul>
-            <li>At each level of recursion, we will:<br>
-              <b>use a for loop to go through every column. 
-              </b>
-              </li>
-            <li>If the<b> cols[col] == false and rdiag[row - col + N - 1] ==  false && ndiag[col + row] == false ,</b>it means that there is no other queen that can kill the current queen .Therefore, we will <b>place our queen on that box and mark the cols[col] , rdiag[ row -  col + N - 1] and ndiag[col+ row] as true </b>in preorder(VISIT).
-            </li>
-            <li>We will then <b> make a call for the next row.</b>
-            </li>
-            <li>We will<b> unvisit the visited cols, rdiag and ndiag in post order and mark cols[col], ndiag[row+col] and rdiag[row - col + N - 1] as false.</b>
-            </li>
-            <li><b>Base Case: When the row will be equal to the length of board, we will print our asf and return.
-            </b></li>
-          </ul> -->
-
           <p>So, dear reader, we hope that you have understood the complete procedure. If you still have any doubts about the procedure or the code, you may refer to the complete solution video to clear all your doubts. Let us now discuss the time and space complexity of the above code.
           </p>
           <div class="youtube-video">
@@ -342,7 +267,7 @@
 
 
          <div class="analysis">
-          <div class="sub-heading-2">Complexities:O()</div>
+          <div class="sub-heading-2">Time and Space Complexity</div>
             <div class="sub-heading-2">Time Complexity:</div>
             <div class="content">
              <p> The time complexity for the above solution is O(2n) where n is the number of input words. This is because we have n words and every word has two choices i.e. to be included in the subset or not to be. You might be thinking what about the validation that we applied? We are not generating 2n subsets, rather only the valid ones. Actually, this is not completely true. Backtracking generates all the possible subsets and we select the valid subsets from them. So, we are creating 2n subsets and hence the time complexity becomes 2n.
