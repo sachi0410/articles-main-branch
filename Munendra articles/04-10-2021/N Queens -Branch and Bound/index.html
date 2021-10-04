@@ -91,7 +91,7 @@
             <p><b>Sample Input:
             </b> 4</p>
             <p><b>Sample Output: </b>0-1, 1-3, 2-0, 3-2.0-2, 1-0, 2-3, 3-1.</p>
-            <div class="img"><img class="articleImages" name="N-Queens_1.png" alt="img" /></div>
+            <div class="img"><img class="articleImages" name="n_queens_branch_and_bound_1.png" alt="img" /></div>
             <ul>
               <li>The input is 4, which implies that (n=4), the size of a chess board is 4. We need to place 4 queens in the 4*4 cells of board such that no queen can kill each other.
               </li>
@@ -154,7 +154,7 @@
               <ul>
                 <li>   Here every box is filled with the sum of row index and col index.
                 </li>
-                <div class="img"><img class="articleImages" name="N-Queens_2.png" alt="img" /></div>
+                <div class="img"><img class="articleImages" name="n_queens_branch_and_bound_2.png" alt="img" /></div>
                 <li>  Thus, we can see that every line represents the same number and they represent the normal diagonal. Therefore, the size of ndiag is 2*N - 1.</li>
                 <li>   Therefore, the element with index (0,1) will be represented as the 1st index of the ndiag array. If there is a queen on (0,1) then no queen can be placed on (1,0) too, therefore my marking 1st index of ndiag we are restricting any other queen on (1,0) too.
                 </li>
@@ -168,19 +168,19 @@
               <ul>
                 <li>  Here every element is filled with the difference of row and col index.
                 </li>
-                <div class="img"><img class="articleImages" name="N-Queens_3.png" alt="img" /></div>
+                <div class="img"><img class="articleImages" name="n_queens_branch_and_bound_3.png" alt="img" /></div>
                 <li> Thus, we can see that every line represents the same item and they represent the reverse diagonal. As the number of lines is 2*N - 1. Therefore, the size of reverse diagonal is 2*N - 1.
                 </li>
                 <li>   As we cannot represent negative numbers as index of an array therefore we will add N - 1 to every element of 2D array to bring it in range of [0,2*N-1].
                 </li>
                 <li> New 2D array:
                 </li>
-                <div class="img"><img class="articleImages" name="N-Queens_4.png" alt="img" /></div>
+                <div class="img"><img class="articleImages" name=n_queens_branch_and_bound_4.png" alt="img" /></div>
                 <li>  Therefore, the element with index (0,1) will be represented as the 2nd index of ndiag. If there is a queen on (0,1) then no queen can be placed on (1,2) and (2,3) too, therefore my marking 2nd index of rdiag we are restricting any queen on (1,2) and (2,3) too.
                 </li>
                 <li> Similarly, by marking any index of rdiag as true, we are restricting any other queen on the same diagonal.
                 </li>
-                <div class="img"><img class="articleImages" name="N-Queens_5.png" alt="img" /></div>
+                <div class="img"><img class="articleImages" name="n_queens_branch_and_bound_5.png" alt="img" /></div>
                 <li>This array shows that index 2 of ndiag is storing the value for (2,0), (1,1) and (0,2) elements of the matrix.
                 </li>
               </ul>

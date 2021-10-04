@@ -58,61 +58,53 @@
           <div class="content">
             <p>Welcome back, dear reader. So, how is it going? In this article we will discuss the problem MAX SCORE.  Have a look at the sample input to understand the problem.
             </p>
+            <div class="img"><img class="articleImages" name="max-score_1.png" alt="img" /></div><br>
             
-            <p>In this article we will discuss about the first problem based on “Recursion and Backtracking” i.e. N Queens - Branch and Bound.</p>
-            
-            <p>We have already discussed this problem, N Queens, earlier in level-1. But here we will use the Branch and Bound approach.<br>
-              If you want then you can try and solve that one first, so that you can get a broader perspective to understand this problem using a better approach which is Branch and Bound.
-              </p>
-            <p>Before you move any further, it is advised that you give this problem a fair try.   </p>
-            <p><b>Important Links :</b> <a href="https://www.pepcoding.com/resources/online-java-foundation/recursion-backtracking/n-queens-official/ojquestion" target="_blank">Problem Link</a>, <a href="https://youtu.be/prZJ0hA43NU" target="_blank">Question Video</a> , <a href="https://youtu.be/05y82cP3bJo" target="_blank">Solution Video</a> </p>
-             <p>Let’s jump to the problem.</p>              
+            <p><b>Important Links :</b> <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/recursion-and-backtracking/max-score-official/ojquestion" target="_blank">Problem Link</a>, <a href="https://youtu.be/XtmW3a8Q9M4" target="_blank">Question Video</a> , <a href="https://youtu.be/XtmW3a8Q9M4" target="_blank">Solution Video</a> </p><br>
+             
+            <p>Wait, what is this weird input and what do we have to do in this question? Let’s see. 
+            </p>              
          
 
            </div>
         </div>
        
         <div class="understandingProb">
-          <div class="sub-heading-2">Understanding the problem:
+          <div class="sub-heading-2">Problem Explanation:
           </div>
             <div class="content">
-             <p>In this problem you are given a number n, the size of a chess board.
-              You are required to place n number of queens in the n * n cells of board such that no queen can kill another, by completing the body of “printNQueens()” function - without changing signature - to calculate and print all safe configurations of n-queens.
+             <p> We are given 4 in the first line of input and in the next line we are given 4 words. So, this much is clear to us. Now the first thing we have to do is create subsets of this set of 4 words. But, there is a condition to making these subsets. In the third line of input we are given a number 9 which indicates the size of a character array and in the next line, we have a character array of size 9. But, what are these characters?
               </p>
-              <p><b>Note:</b></p>
-              <ul>
-                <li>Queens Kill at distance in all 8 directions
+              <p>This character array shows the frequency of these characters that can be present in the subset that we create. What do we mean by this? See, we are given 3 ‘d’ characters in the character array. This means that the subset that we will make can have a maximum of 3 times the character ‘d’in it. For instance, we can have a subset {dog, dad} as the number of times ‘d’ occurs in this subset is 3 which is equal to the max limit. But, we cannot have a subset like {dog, dad, good} as ‘d’ occurs 4 times which is greater than the max limit of occurrence of ‘d’.
+               <br> So, now we know what kind of subsets we are allowed to make. But, we are still left with the last line of input. This line has 26 integers and these integers specify the score of each alphabet.
+              <br> Now, we can calculate the score of a subset by adding the scores of all the alphabets in it. For instance:
+                </p>
+                <div class="img"><img class="articleImages" name="max-score_2.png" alt="img" /></div>
+            
+              <p>So, there are many valid subsets and each valid subset will have a score. So, we have to print the <b>maximum score out of the scores of the valid subsets.</b> We hope that you have understood the question completely. If you have any doubts regarding the question, refer to the video MAXIMUM SCORE OF WORDS to understand the question completely. Now, let us discuss the approach to solve this problem.
+              </p>
+              <div class="youtube-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/XtmW3a8Q9M4?start=0&end=200" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <p><b>Algorithm:</b></p>
+              <ol>
+                <li>We will iterate through every word in the array and each word will have two choices- to be included in the subset or not to be included in the subset.
                 </li>
-                <li>The online judge can't force you to write the function recursively but that is what the spirit of the question is.
+                <li>If the word is not included in the subset, the score of this word will be 0 and the total score will depend upon the further words in the array.
                 </li>
-                <li>Write recursive and not iterative logic. The purpose of the question is to aid learning recursion, branch and bound technique and not test you.
+                <li>If the word has to be included, we must check whether it can be included or not according to the max limit of each character given to us. 
                 </li>
-              </ul>
-            <p><b>Sample Input:
-            </b> 4</p>
-            <p><b>Sample Output: </b>0-1, 1-3, 2-0, 3-2.0-2, 1-0, 2-3, 3-1.</p>
-            <div class="img"><img class="articleImages" name="N-Queens_1.png" alt="img" /></div>
-            <ul>
-              <li>The input is 4, which implies that (n=4), the size of a chess board is 4. We need to place 4 queens in the 4*4 cells of board such that no queen can kill each other.
-              </li>
-              <li>There are 2 ways to place the 4 queens in 4*4 cells of board. </li>
-              <li>First way is represented by green circle (* sign), when queens are placed at 0-1, 1-3, 2-0, 3-2.
-              </li>
-              <li>Second way is represented by red circle (# sign), when queens are placed at 0-2, 1-0, 2-3, 3-1.
-              </li>         
-            </ul>
-            <p>For better understanding of the question, watch part of the video lecture.  Use recursion as suggested in the video.
-            </p>
-            <div class="youtube-video">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/yvt0emtFiIE?start=6&end=46" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
+                <li>If it can be included, its score will be calculated by summing the score of every letter in it and this score will be added to the overall score of the subset. Still, the total score will depend upon the next words in the subset.
+                </li>
+              </ol>
+
             </div>
            </div>
          <div class="approach" id="approach">
-          <div class="sub-heading-2">Moving On:
+          <div class="sub-heading-2">Method:
           </div>
             <div class="content">
-          <ul>
+          <!-- <ul>
             <li>First of all, let’s go through the rules of queen movement in chess:
             </li>
             <ol>
@@ -140,32 +132,55 @@
           <ul>
             <li>Let the n be 4.
             </li>
-          </ul>
-          <p>For better understanding of the question, watch part of the video lecture.  Use recursion as suggested in the video.
+          </ul> -->
+          <p>Let us start by applying the general idea of what can be done. Firstly, we should be clear with what we have to do. We have to give the maximum score out of the valid subsets of words. So, we know that we have to make subsets during this process. Now, there are two possibilities for every word. Either we can include it in the subset or we cannot. This can also be thought of as every word as two choices, whether to come into the subset or not.
           </p>
+          div class="img"><img class="articleImages" name="max-score_3.png" alt="img" /></div>
+          <p>So, for every word, we will make two recursive calls. One which tells us that this word is not included and the other which tells us that this word is included.
+          </p>
+          <p><b>So, we are going to make two calls. One call will give us the score of the subset if the word which we are at (in the words array) is not included and the other call will tell us the score of the subset which includes the current word too.
+          </b></p>
+          <p>So, let us have a look at the procedure and let us try to devise the code simultaneously. </p>
+          <p>To understand every possible case, let us say our index “idx” is currently as the position shown.
+          </p>
+          div class="img"><img class="articleImages" name="max-score_4.png" alt="img" /></div>
+          <p>Dear reader, you need to understand carefully what all we have done when we are at the current position shown in the diagram. We have already visited two words and have calculated the scores of the subsets including and without including that word. This means that currently, we already have some subset to which we are deciding to add the word “dad”.
+          </p>
+          <p>So, we already have a score. Now, we want to see whether we should include the word dad or not. So, the first call is very simple. We simply move our index one step ahead and do not include the score of this word into our previous score.</p>
+          <p>So, in the recursive function signature given in the question, we are given an array of words and a frequency array and a score array of size 26 and the index that we are currently in. (The frequency array is also of size 26 and has the frequency of each character that we can have at every index)
+          </p>
+
+
+          <!-- <p>For better understanding of the question, watch part of the video lecture.  Use recursion as suggested in the video.
+          </p>
+
           <div class="youtube-video">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/yvt0emtFiIE?start=62&end=300" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
+          </div> -->
 
             </div>  
-            <div class="sub-heading-2">NDIAG
+            <div class="sub-heading-2">Why not include this Word?
             </div>
             <div class="content">
-              <ul>
-                <li>   Here every box is filled with the sum of row index and col index.
-                </li>
-                <div class="img"><img class="articleImages" name="N-Queens_2.png" alt="img" /></div>
-                <li>  Thus, we can see that every line represents the same number and they represent the normal diagonal. Therefore, the size of ndiag is 2*N - 1.</li>
-                <li>   Therefore, the element with index (0,1) will be represented as the 1st index of the ndiag array. If there is a queen on (0,1) then no queen can be placed on (1,0) too, therefore my marking 1st index of ndiag we are restricting any other queen on (1,0) too.
-                </li>
-                <li>Similarly, by marking any index of ndiag as true, we are restricting any other queen on the same diagonal.
-                </li>
-              </ul>
+              <p>Now as discussed, we first want to calculate the score without including this word. Now, you might be thinking that if we will not include this word then definitely, the score will be less and we want to attain the maximum score. Well, you forgot that we still have words left in the words array and it might happen that the remaining words in the words array might give us the maximum score. So, yes, we have an option for not including this word and it is absolutely correct. So, if we don’t include this word, what will be the score returned by this? Well, its own score will be zero since it is not included but it will make the recursive call for the process to repeat for the next words. 
+              </p>
+              <p>This means that its own score will be zero and the total score will now depend on the score which comes from the further words.
+              </p>
+              <div class="img"><img class="articleImages" name="max-score_5.png" alt="img" /></div>
+              <p>You may refer to the solution video to understand the above recurrence call that we have made.
+              </p>
+              <div class="youtube-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/XtmW3a8Q9M4?start=201&end=285" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <p>So, this was when we were not including the word into the subset. Now, let us say we want to include the word into the subset. So, how will we go about it?
+              </p>
+              
             </div>
-            <div class="sub-heading-2">RDIAG
+            <div class="sub-heading-2">Including the word into the Subset
+
             </div>
             <div class="content">
-              <ul>
+              <!-- <ul>
                 <li>  Here every element is filled with the difference of row and col index.
                 </li>
                 <div class="img"><img class="articleImages" name="N-Queens_2.png" alt="img" /></div>
@@ -183,64 +198,114 @@
                 <div class="img"><img class="articleImages" name="N-Queens_2.png" alt="img" /></div>
                 <li>This array shows that index 2 of ndiag is storing the value for (2,0), (1,1) and (0,2) elements of the matrix.
                 </li>
-              </ul>
-              <p>For better understanding of the question, watch part of the video lecture.  Use recursion as suggested in the video.
+              </ul> -->
+              <p>Let us recall our situation by looking at img-4 again.
+              </p>
+              <div class="img"><img class="articleImages" name="max-score_6.png" alt="img" /></div>
+              <p>So, we are at this position in the array and we now want to calculate the score by including the current word.
+              </p>
+              <p>There were two possibilities or two options for every word i.e. to be included or not to be. Earlier, we calculated the score by not including the word. Now, we want to include the word but, it might happen that the word still does not get included in the subset. Why? This might happen if the word we are trying to include contains one or more characters whose frequency limit was already reached. So, if we try to include them, it will be an invalid subset. So, we have to count the score for inclusion of the word, only if it gets included.</p>
+              <p>See, when we might have included some words before this word into the subset, we would have changed the frequency of the characters in the frequency array. We already would have reduced the frequency of those characters which appear in the words below. So, now when we include another word, we will check each character of the word and see the frequency of this character in the frequency array. If the frequency for a particular character is already 0 and this character is present in our word which we have to include, we will not be able to include this word as the max limit of occurrence of that character would be crossed.
+              </p>
+              <p>If the frequency for all the characters in the current word is such that we can include this word then, this word will be included. We also have to take care that there can be multiple instances of the same character in a word.
+              </p>
+              <p>Let us say that we have a situation where we are allowed to repeat the character ‘d’ 3 times at max. Let’s say we have repeated it  2 times already and the word that we want to include is “dad”. So, we will not be able to include it as it has 2 instances of character ‘d’ and we will cross the max limit if we include it. So, we have to take care of this too.
+              </p>
+              <p>Now if we include this word, the total score will become the score of  the current word + the score of the further words.
+              </p>
+              <div class="img"><img class="articleImages" name="max-score_7.png" alt="img" /></div>
+              <p><b>Now, the maximum score is what we want, right? So, we will return the max score that will be the maximum out of the two scores that we have calculated, one including the current word and the other, without including the current word.</b></p>
+              <p>Don’t forget to add the base case for recursion. What will be the base case? Well, we are traversing the array of words and deciding whether each word will come into the subset or not. So, if we reach the end of this array, we will have to return from here. This is the base case. 
+              </p>
+              <p><b>Base Case:</b> When index becomes equal to the size of the words array i.e. when we have traversed the words array completely then we have no word left to include in the subset. Since there is no word left, the score that we get from here will be 0. So, when idx==word.length, return 0.
+              </p>
+              
+              <p>So, dear reader, we hope that you have understood the complete procedure. You may refer to the solution video to understand the above procedure and the code written below completely.
               </p>
               <div class="youtube-video">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/yvt0emtFiIE?start=326&end=1256" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/XtmW3a8Q9M4?start=226" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
-            </div>
-            <div class="sub-heading-1">Signature of the function:
-            </div>
-            <div class="sub-heading-2">public static void solution(boolean[][] board, int row, boolean[] cols, boolean[] ndiag, boolean[] rdiag, String asf)</div>
-            <div class="content">
-              <ul>
-                <li><b>board -</b>N X N board. It is marked as true wherever the queen is placed.
-                </li>
-                <li><b>row -</b>current row.
-                </li>
-                <li><b>cols - </b>array of size N. It is used to keep a tab of columns that are already occupied by the queen placed before the current queen.
-                </li>
-                <li><b>ndiag  - </b>array of size 2 * N - 1. It is used to keep a tab of normal diagonals that are already occupied by the queen placed before the current queen.
-                </li>
-                <li><b>rdiag  - </b>array of size 2 * N - 1. It is used to keep a tab of reverse diagonals that are already occupied by the queen placed before the current queen.
-                </li>
-                <li><b>asf -</b> string to store the positions where queens are placed.</li>
-              </ul>
-              <p><b>Let’s try to code this!</b>
+              <p>Java Code
               </p>
             </div>
-            
-        </div> 
 
-        <div class='codeEditor' id="1">
+            <div class='codeEditor' id="1">
             <div class='editorialCode'>
+              import java.io.*;
               import java.util.*;
-
+               
               public class Main {
-
-                  public static void solution(boolean[][] board, int row, boolean[] cols, boolean[] ndiag
-                  , boolean[] rdiag, String asf) {
-                  if (row == board.length) {
-                  System.out.println(asf + ".");
-                  return;
+               
+                public static int solution(String[] words, int[] farr, int[] score, int idx) {
+                    
+                    if(idx==words.length)
+                    {
+                        return 0;
+                    }
+                  
+                  int sno=0 + solution(words,farr,score,idx+1);  //score of the subset when the word is not included
+                  
+                  int sword=0;
+                  String word=words[idx];
+                  boolean flag=true;
+                  
+                  for(int i=0;i< word.length();i++)
+                  {
+                      char ch=word.charAt(i);
+                      if(farr[ch-'a'] ==0)
+                      {
+                          flag=false;
+                      }
+                      farr[ch-'a']--;
+                      sword += score[ch-'a'];
                   }
-
-                  for (int col = 0; col < board.length; col++) {
-                  if (!cols[col] && !ndiag[row + col] && !rdiag[row - col + board.length - 1]) {
-                  board[row][col] = true;
-                  cols[col] = true;
-                  ndiag[row + col] = true;
-                  rdiag[row - col + board.length - 1] = true;
-                  solution(board, row + 1, cols, ndiag, rdiag, asf + row + "-" + col + ", ");
-                  board[row][col] = false;
-                  cols[col] = false;
-                  ndiag[row + col] = false;
-                  rdiag[row - col + board.length - 1] = false;
+                  
+                  int syes=0;  //score of the subset when the word is included
+                  if(flag)
+                  {
+                     syes=sword+solution(words,farr,score,idx+1);    
                   }
+                  
+                  for(int i=0;i< word.length();i++)
+                  {
+                      char ch=word.charAt(i);
+                      farr[ch-'a']++;
                   }
+                  
+                  return Math.max(syes,sno);
+                }
+               
+                public static void main(String[] args) {
+               
+                  Scanner scn = new Scanner(System.in);
+                  int nofWords = scn.nextInt();
+                  String[] words = new String[nofWords];
+                  for(int i = 0 ; i < words.length; i++) {
+                    words[i] = scn.next();
                   }
-
+                  int nofLetters = scn.nextInt();
+                  char[] letters = new char[nofLetters];
+                  for (int i = 0; i < letters.length; i++) {
+                    letters[i] = scn.next().charAt(0);
+                  }
+                  int[] score = new int[26];
+                  for (int i = 0; i < score.length; i++) {
+                    score[i] = scn.nextInt();
+                  }
+                  if (words == null || words.length == 0 || letters == null || letters.length == 0 || score == null
+                      || score.length == 0) {
+                    System.out.println(0);
+                    return;
+                  }
+                  int[] farr = new int[score.length];
+                  for (char ch : letters) {
+                    farr[ch - 'a']++;
+                  }
+                  System.out.println(solution(words, farr, score, 0));
+               
+                }
+              }
+              
 
             </div>
             <pre class='output'>
@@ -248,10 +313,11 @@
             <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
             <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
         </div>
-        <div class="sub-heading-2">Code Explained:
-        </div>
+
+        <!-- <div class="sub-heading-2">Code Explained:
+        </div> -->
         <div class="content">
-          <ul>
+          <!-- <ul>
             <li>At each level of recursion, we will:<br>
               <b>use a for loop to go through every column. 
               </b>
@@ -264,12 +330,12 @@
             </li>
             <li><b>Base Case: When the row will be equal to the length of board, we will print our asf and return.
             </b></li>
-          </ul>
+          </ul> -->
 
-          <p> Watch this of the video lecture for better understanding. 
+          <p>So, dear reader, we hope that you have understood the complete procedure. If you still have any doubts about the procedure or the code, you may refer to the complete solution video to clear all your doubts. Let us now discuss the time and space complexity of the above code.
           </p>
           <div class="youtube-video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/yvt0emtFiIE?start=1271&end=1686" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/XtmW3a8Q9M4?start=4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         
 
@@ -277,94 +343,43 @@
 
          <div class="analysis">
           <div class="sub-heading-2">Complexities:O()</div>
-            <div class="sub-heading-2">Time Complexity: O()</div>
+            <div class="sub-heading-2">Time Complexity:</div>
             <div class="content">
-             <p><b>Complete Code:
-            </b></p>
+             <p> The time complexity for the above solution is O(2n) where n is the number of input words. This is because we have n words and every word has two choices i.e. to be included in the subset or not to be. You might be thinking what about the validation that we applied? We are not generating 2n subsets, rather only the valid ones. Actually, this is not completely true. Backtracking generates all the possible subsets and we select the valid subsets from them. So, we are creating 2n subsets and hence the time complexity becomes 2n.
+            </p>
+            </div>
+            <div class="sub-heading-2">Space Complexity:
+            </div>
+            <div class="content">
+              <p>The space complexity of the above solution is O(h) where h is the height of the recursion stack and O(1) without considering the recursion space as we have not used any extra memory other than recursion.
+              </p>
+              <p>So, dear reader, hope that you got the above solution completely and have also understood the time and space complexity analysis. If you still have any doubts regarding this problem, you should refer to the complete solution video to clear all your doubts. With this, we have completed this problem.
+              </p>
+              <div class="youtube-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/XtmW3a8Q9M4?start=5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
               
             </div>
-            <!-- <div class="sub-heading-2">Space Complexity:
-            </div>
+            <div class="sub-heading-2">Suggestions:</div>
             <div class="content">
-              <p><b> O(N)</b></p>
-              <p>Where N = length of the input string.
-                We can observe that the maximum depth of the recursion tree any time is N. Therefore, the max space occupied at any time will be equal to the N. In the post order, the occupied space in the recursion stack will be freed so the space occupied will not exceed N.
+              <p>Here are some suggestions from our side that you do not want to miss:
+              </p>
+              <ol>
+                <li>We recommend you watch the complete solution video at least once to get the entire concept with full clarity in your mind.
+                </li>
+                <div class="youtube-video">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/XtmW3a8Q9M4?start=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <li>We also recommend that you dry run the code once with the procedure to understand what exactly is happening behind the scenes in the recursion. So, keep practicing and moving forward.</li>
+              </ol>
+              <p>All the best for an exciting future!<br>
+                Happy Coding!
                 </p>
-              
-            </div> -->
+            </div>
         </div>
         </div>
-        <div class='codeEditor' id="2">
-          <div class='editorialCode'>
-            import java.io.*;
-            import java.util.*;
-             
-            public class Main {
-             
-              public static void solution(boolean[][] board, int row, boolean[] cols, boolean[] ndiag, boolean[] rdiag, String asf) {
-                if (row == board.length) {
-                  System.out.println(asf + ".");
-                  return;
-                }
-             
-                for (int col = 0; col < board.length; col++) {
-                  if (!cols[col] && !ndiag[row + col] && !rdiag[row - col + board.length - 1]) {
-                    board[row][col] = true;
-                    cols[col] = true;
-                    ndiag[row + col] = true;
-                    rdiag[row - col + board.length - 1] = true;
-                    solution(board, row + 1, cols, ndiag, rdiag, asf + row + "-" + col + ", ");
-                    board[row][col] = false;
-                    cols[col] = false;
-                    ndiag[row + col] = false;
-                    rdiag[row - col + board.length - 1] = false;
-                  }
-                }
-              }
-             
-              public static void main(String[] args) throws Exception {
-                Scanner scn = new Scanner(System.in);
-                int n = scn.nextInt();
-                boolean[][] board = new boolean[n][n];
-                boolean[] cols = new boolean[n];
-                boolean[] ndiag = new boolean[2 * n - 1];
-                boolean[] rdiag = new boolean[2 * n - 1];
-                solution(board, 0, cols, ndiag, rdiag, "");
-              }
-             
-            }  
-            
-            
-          </div>
-          <pre class='output'>
-          </pre>
-          <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
-          <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
-      </div>
-      <div class="content">
-        <p>We hope that this article was helpful. If somehow you are finding it difficult to understand this problem then we advise you to watch our video lecture of this problem. 
-        </p>
-        <div class="youtube-video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/LliQjLnbhx8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <p>We hope that this article was helpful. If somehow you are finding it difficult to understand this problem then we advise you to watch our video lecture of this problem. <br>
-          Trust me it will just get easier to understand after you have watched the solution video.<br>
-          You can contact us via our website. Doubts, suggestions and feedback are always welcomed.<br>
-          It is also advised that you follow the sequence of modules and questions which is there on our website.<br> 
-          Keep practicing more and more problems daily. Meditate enough on each step of each problem.
-          
-        </p>
-        <!-- <p>You can contact us via our website. Doubts, suggestions and feedback are always welcomed.
-        </p>
-        <p>It is also advised that you follow the sequence of modules and questions which is there on our website. 
-        </p>
-        <p>Keep practicing more and more problems daily. Meditate enough on each step of each problem</p> -->
-        <p>All the best for an exciting future!<br>
-          Happy Coding!
-          </p>
-      </div>
-
-      </div>
+    
+  
 
         <div class="article-tags">
 
