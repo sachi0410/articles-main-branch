@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <title>Combinations - 1</title>
+     <title>Combinations - 2</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" integrity="sha512-8qx1DL/2Wsrrij2TWX5UzvEaYOFVndR7BogdpOyF4ocMfnfkw28qt8ULkXD9Tef0bLvh3TpnSAljDC7uyniEuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +35,7 @@
           <div class="c2"></div>
         </div>
         <div class="topic-name">
-            <p>Combinations - 1</p> 
+            <p>Combinations - 2</p> 
         </div>
         <a class="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon="">
             <i class="fa fa-chevron-down"></i>
@@ -44,23 +44,24 @@
         <div class="qoute">
             <br><br>
             <p>
-            “The harder you work for something, the greater you’ll feel when you achieve it.”
+            “Wake up with determination. Go to bed with satisfaction.”
               
             </p>
             <i class="fa fa-quote-right qoute-icon"></i>
         </div>
     </div>
     <div class="question-logo"><i class="fa fa-quora"></i></div>
-    <div class="ques-info">Combinations - 1</div>
+    <div class="ques-info">Combinations - 2</div>
     <div class="article-info">
         <div class="article-divider" style="margin-top:0px ;"></div>
         <div class="article-content">
           <div class="content">
              <p>Dear reader, welcome to the next problem in the Recursion & Backtracking section named <p><b>Important Links :</b>
- <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/recursion-and-backtracking/combinations-i-official/ojquestion" target="_blank"> ‘Combinations - 1’. </a> <br>Please, I request you to solve the previous problem ‘Permutations - 1’ before jumping on to this problem. Infact, I recommend you to watch these sets of problems in given order and try to complete the entire set together.
+ <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/recursion-and-backtracking/combinations-2-official/ojquestion" target="_blank"> ‘Combinations - 2’. </a> <br>Please, I request you to solve the previous problems ‘Permutations - 1’, ‘Combinations - 1’ and ‘Permutations - 2’ before jumping on to this problem. Infact, I recommend you to watch these sets of problems in given order and try to complete the entire set together.
+
  </p>
  <p><b>Important Links :</b>
- <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/recursion-and-backtracking/permutation-i-official/ojquestion" target="_blank"> ‘Permutations - 1 </a></p>
+ <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/recursion-and-backtracking/permutation-i-official/ojquestion" target="_blank"> 'Permutations - 1' </a>, <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/recursion-and-backtracking/combinations-i-official/ojquestion" target="_blank"> 'Combinations - 1' </a>, <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/recursion-and-backtracking/permutations-ii-official/ojquestion" target="_blank"> 'Permutations - 2' </a></p>
 
 </div>
 </div>
@@ -87,29 +88,24 @@
           <div class="sub-heading-1">Approach :</div>
           <div class="sub-heading-2">Solution</div>
             <div class="content">
-              <p>Do you remember the <b>binomial expansion</b> formula which you probably learned in high school mathematics?</p>
-                <div class="img"><img class="articleImages" name="combinations_1.png" alt="img" /> </div>
-                <p>Let us find all the combinations possible for n = 4 boxes.</p>
-                <div class="img"><img class="articleImages" name="combinations_2.png" alt="img" /> </div>
-                <p>We will print all those combinations where the number of identical items is equal to the total number (r) required, i.e. only print the combinations of nCr.<br>Now, let us define the expectation and faith in our recursive functions, and then derive a recursive relation by meeting expectation with faith.</p>
-                <p><b>Expectation:</b> We expect that the recursive function will give us all the combinations of r identical items. At each level, we are deciding for a given box whether an item should be placed in it or not. Hence, at first level, we are deciding for the 0th box.</p>
-                <div class="img"><img class="articleImages" name="combinations_3.png" alt="img" /> </div>
-                <p>Here, cb is the current box whose decision (whether to place an item or not) is to be taken, tb is the total number of boxes, ssf is the number of items placed so far, ts is the total number of identical items, and asf is the answer so far.<br><b>Faith:</b> We will keep faith on the recursive function that will help us make all the choices for the remaining n-1 boxes. </p>
-                <div class="img"><img class="articleImages" name="combinations_4.png" alt="img" /> </div>
-            </div>
-                <div class="sub-heading-2">Meeting Expectation with Faith:</div>
-            <div class="content">
-                <p>For the current box, we have two options, whether we should place an item in it or let it remain empty.</p>
+              <p>In the previous solution for the same combination problem, we used LEVELS as boxes and choices as placing an item or not.<br>But in this article, we will try to find a solution by deriving a relation between permutation coefficient and <b>binomial coefficient.</b></p>
+                <div class="img"><img class="articleImages" name="combinations_2_1.png" alt="img" /> </div>
+                <div class="img"><img class="articleImages" name="combinations_2_2.png" alt="img" /> </div>
+                <p>If we are having 123 as a permutation, then we should eliminate all possibilities of 132 , 213, 231, 312 and 321, because in this case all items 1,2 and 3 are identical (= i).<br><b>Q)</b> So, how can we stop the remaining permutations?<br><b>R)</b> If you analyze carefully, if we generate all the permutations with <b>items in increasing order of their values</b> only, and discard all the other permutations, then we will be able to find combinations using permutations.<br>Hence, if the current item cb is placed in say box number b, then the next item cb + 1 should be placed in boxes in right of b, i.e. in any box from [b + 1, n] only.<br>Let us define the faith, expectation of the recursive function and then derive a recursive relation by meeting expectation with faith.<br><b>Expectation:</b> We expect that our function will give us all the combinations of r identical items by placing them in n boxes. We will expect from the function that it will place the current item ci, in any one empty box. Here, we also need the index of the last box lb.</p>
+                <div class="img"><img class="articleImages" name="combinations_2_3.png" alt="img" /> </div>
+                <p><b>Faith:</b> After placing the current item ci in box number b, we will keep faith on our recursive function, that it knows how to generate the combinations of the rest of the items in the empty boxes in range [b+1, n]. Hence, we will keep faith that we can place all the rest items from (ci + 1 to ti) in boxes (b+1 to n).</p>
+                <div class="img"><img class="articleImages" name="combinations_2_4.png" alt="img" /> </div>
+                <p><b>Meeting Expectation with Faith:</b><br>As mentioned above, for the current item ci, we will try to place it in one of the empty boxes. Hence, we will run a loop over the boxes after the last box, checking whether the box is empty or not.<br>If the box is empty, then we will place the current item in the box, in the edge-pre area by doing box[b] = ci, and call for the recursive function for the next item (ci + 1).<br>But, please keep in mind that after returning from the recursive function in the edge-post area, we will update the box back to empty, i.e. box[b] = 0.</p>
+                <div class="img"><img class="articleImages" name="combinations_2_5.png" alt="img" /> </div>
+                <p>Now, the only thing remaining is … the <b>BASE CASE.</b><br>We should stop if we have placed all the total number of items (ti) in some boxes. Hence, when the current item (ci) becomes greater than ti, then we will print the combination and return.<br>But, please note that values in boxes array are integer values (1, 2, 3, … r), but we need ’i’ for filled boxes (identical items). Hence, if boxes[i] = 0, then we will print “-” (empty) else i (filled).</p>
+                <div class="img"><img class="articleImages" name="combinations_2_6.png" alt="img" /> </div>
+                <p>In recursion tree:</p>
                 <ul>
-                    <li>If we place an item in the current box, then items selected so far will increase by 1, and we will append “i” (item in current box) to the answer string.</li>
-                    <li>If we do not place an item in the current box, then items selected so far will remain the same, and we will append “-” (empty box) to the answer string. </li>
+                    <li>The <b>LEVELS are equivalent to ITEMS</b> (but in increasing order only).</li>
+                    <li>The <b>CHOICES/EDGES are equivalent to BOXES.</b></li>
                 </ul>
-                <div class="img"><img class="articleImages" name="combinations_5.png" alt="img" /> </div>
-                <p><b>Base Case</b><br>Since we are picking all the boxes level by level, we should stop when decisions for all the boxes have been made. Hence, we should stop when the current box becomes greater than the total boxes (cb > tb).<br>Now, there is a catch. As discussed in the mathematical formula, we will generate all the combinations of 0 items, 1 items, 2 items, and so on. But we only require those combinations which have ts (total number of identical) items in the answer string. Hence, we will print the combination if ssf = ts.</p>
-                <div class="img"><img class="articleImages" name="combinations_6.png" alt="img" /> </div>
-                <p>In the recursion tree, the <b>LEVELS are equivalent to the BOXES</b> and the choices are to place an ITEM in the current box or not.</p>
-                <div class="img"><img class="articleImages" name="combinations_7.png" alt="img" /> </div>
-
+                <div class="img"><img class="articleImages" name="combinations_2_7.png" alt="img" /> </div>
+  
     
         </div> 
          </div>
@@ -121,26 +117,32 @@ import java.util.*;
  
 public class Main {
  
-  public static void combinations(int cb, int tb, int ssf, int ts, String asf){
-    if(cb > tb){
-      if(ssf == ts){
-        System.out.println(asf);
+  public static void combinations(int[] boxes, int ci, int ti, int lb){
+    if(ci > ti){
+      for(int i = 0; i < boxes.length; i++){
+        System.out.print(boxes[i] == 0? "-" : "i");
       }
+      System.out.println();
       return;
     }
- 
-    combinations(cb + 1, tb, ssf + 1, ts, asf + "i");
-    combinations(cb + 1, tb, ssf + 0, ts, asf + "-");
+    for(int b = lb + 1; b < boxes.length; b++){
+      if(boxes[b] == 0){
+        boxes[b] = ci;
+        combinations(boxes, ci + 1, ti, b);
+        boxes[b] = 0;
+      }
+    }
   }
  
   public static void main(String[] args) throws Exception {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     int nboxes = Integer.parseInt(br.readLine());
     int ritems = Integer.parseInt(br.readLine());
-    combinations(1, nboxes, 0, ritems, "");
+    combinations(new int[nboxes], 1, ritems, -1);
   }
  
 }
+
 
 
 
@@ -155,9 +157,9 @@ public class Main {
 
          <div class="content">
             <p>Java Code is written and explained by our team in the solution video. Please refer to it for a better understanding of the algorithm and the implementation.</p>
-            <p><b>Important Links :</b><a href="https://www.youtube.com/watch?v=wOaxJAtJ2Mo&list=TLGGVLXuUnA2Q18xNzA3MjAyMQ" target="_blank">solution video.</a></p>
+            <p><b>Important Links :</b><a href="https://www.youtube.com/watch?v=f6cL-VMIfTY&list=TLGGJFKMpKAmgoUxNzA3MjAyMQ" target="_blank">solution video.</a></p>
                <div class="youtube-video">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/wOaxJAtJ2Mo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/f6cL-VMIfTY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
 
@@ -166,12 +168,16 @@ public class Main {
           <div class="sub-heading-1">Analysis:</div>
           <div class="sub-heading-2">Time Complexity:</div>
           <div class="content">
-                <p>It is clearly visible from the recursion tree, that it can have a maximum depth of n levels (where n = number of boxes), and for each box, we have two options, whether to place an item or not, hence the total time complexity will be O(2 + 2 + 2 + …. n times) = <b>O(2<sup>n</sup>)</b>.</p>
+                <p>Since, there are r levels/depth of the recursion tree, and at each level, we are exploring at max n boxes and finding the empty ones, hence the time complexity will be O(n * n * …. r times) = O(n<sup>r</sup>)</b>.</p>
           </div>
 
           <div class="sub-heading-2">Space Complexity:</div>
           <div class="content">
-            <p>We are using recursion to print all the combinations. Since, the maximum depth is O(n), hence the space complexity will be <b>O(n)</b> where n = number of boxes. However, we are not using any auxiliary data structure.<br>Hope that you liked the article on ‘Combinations - 1’.<br>Subscribe to Pepcoding’s youtube channel for more such amazing video content on Data Structures & Algorithms. You can suggest any improvements to the article on our telegram channel, or on the youtube channel’s comment section.</p> 
+            <p>We are using the box array to store the combinations. If we consider the space taken by this array, then space complexity will be <b>O(n).</b><br>
+Otherwise, since we are using recursion which takes function call space, and there are at max r depth, recursion will take <b>O(r)</b> space.<br> 
+Hope that you liked the article on <b>‘Combinations - 2’.</b><br> 
+Subscribe to Pepcoding’s youtube channel for more such amazing video content on Data Structures & Algorithms. You can suggest any improvements to the article on our telegram channel, or on the youtube channel’s comment section. 
+</p> 
             
        
         </div>
