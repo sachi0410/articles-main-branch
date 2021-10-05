@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>Set Bits in Range</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" integrity="sha512-8qx1DL/2Wsrrij2TWX5UzvEaYOFVndR7BogdpOyF4ocMfnfkw28qt8ULkXD9Tef0bLvh3TpnSAljDC7uyniEuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css"
+    />
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css">
+   <!--  <link rel="stylesheet" href="query.css"> -->
+
+
+  </head>
+  <body>
+  <div class="article1">
+    <div class="article-1-outerbox">
+        <div class="Circles hide-on-med-and-down">
+          <div class="c1"></div>
+          <div class="c2"></div>
+        </div>
+        <div class="topic-name">
+            <p>Set Bits in Range</p> 
+        </div>
+        <a class="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon="">
+            <i class="fa fa-chevron-down"></i>
+        </a>
+        <br><br><br><br>
+        <div class="qoute">
+            <br><br>
+            <p>
+           “ Code is like humor. When you have to explain it, it’s bad.”
+           <br>
+            – Cory House
+              
+            </p>
+            <i class="fa fa-quote-right qoute-icon"></i>
+        </div>
+    </div>
+    <div class="question-logo"><i class="fa fa-quora"></i></div>
+    <div class="ques-info">Set Bits in Range</div>
+    <div class="article-info">
+        <div class="article-divider" style="margin-top:0px ;"></div>
+        <div class="article-content">
+          <div class="content">
+            <p> Welcome back, dear reader. So, in this article, we will discuss a very interesting problem called SET BITS IN RANGE. So, what does this question say? We are given two binary numbers A and B. We will also be given a range i.e. left and right. We have to set all the bits of B in the range left to right only at those places where the bits of A are set. What do we mean by this? Look at the image given below:</p><p><b>Important Links :</b><a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/bit-manipulation/copy-set-bits-in-a-range-official/ojquestion" target="_blank"> SET BITS IN RANGE. </a>, <a href="https://youtu.be/v7pUZw-ZOYU" target="_blank"> solution video. </a> </p>
+            <div class="img"><img class="articleImages" name="set_bits_in_range_1.png" alt="img" /> </div>
+            <p>As shown in the figure above, we have set only those bits in B which were lying in the range and the corresponding bits in A were also set. For instance, the bit at position 3 in B was set because it was in the range, and the bit at position 3 in A was also set. We did not set the bit at position 6 in B although it was lying in the range because the bit at position 6 in A was not set. So, we have to set the bits which are in range and corresponding bits in A are also set for them. The rest of the bits of B will remain the same.</p>
+
+            </div>
+        </div>
+    <div class="understandingProb">
+          <div class="sub-heading-1">Understanding problem: </div>
+            <div class="content">
+               
+                   <p>We hope that you have understood the question now. If you still have any doubts regarding the question, refer to the<a href="https://youtu.be/v7pUZw-ZOYU" target="_blank"> SET BITS IN RANGE VIDEO </a> to clear all your doubts regarding the question.</p>
+                 <div class="youtube-video">
+               <iframe width="560" height="315" src="https://www.youtube.com/embed/v7pUZw-ZOYU?start=0&end=125" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p>try to solve this problem on your own first and then refer to the solution to understand the concepts in depth.</p>
+
+          </div>
+        </div>
+        <div class="approach" id="approach">
+          <div class="sub-heading-1">Approach :</div>
+          <div class="sub-heading-2">Time Complexity:  O(1) <br><br> Space Complexity: O(1) <br><br> Algorithm:</div>
+            <div class="content">
+            <ol>
+                <li>We will first create a mask that will have all the bits set in the range provided to us. </li>
+                <li>We will take the AND of this mask with A. This will give us all the bits in A within the range and the rest all the bits which are not in the range will be zero.</li>
+                <li>We will take the OR of this mask that we have obtained from step-2 above with complete binary number B. This will give us our desired output.</li>
+                
+            </ol>
+            <p>We hope that you have already understood the question and have also tried to solve the problem once yourself. Now let us discuss this problem. See, we have to set only the bits in a particular range. This means that we do not need the entire binary number A to check which of its bits are set; rather, we need only the part of A which lies in the range.<br>Have a look at the image given below:</p>
+            <div class="img"><img class="articleImages" name="set_bits_in_range_2.png" alt="img" /> </div>
+            <p>What have we done here? We have somehow created a mask from A in such a way that all the bits in the range are copied from A whereas all the other bits that are not in the range are 0.<br> In the second step, we have taken the OR of this mask with B. So, the bits that are not in range will directly be copied from B as we have 0 '’’s at those positions in the mask and either 0 or 1 OR 0 is always the bit itself.<br>The bits that are in the range undergo the logical OR operation with the corresponding bits of A stored in the mask. So, if a bit in A is 0, the bit of B will be copied to the answer whether it is 0 or 1. If a bit is 1 in A, 1 will be copied in our answer whether the bit in B is 0 or 1. (This is the basic property of logical OR)<br>So, this is what we have to do. So, this question is not so difficult, is it? Wait!!!<br>We have not yet talked about the mask that we got. How did we get the mask? Have a look at the image given below:</p>
+            <div class="img"><img class="articleImages" name="set_bits_in_range_3.png" alt="img" /> </div>
+            <p>We have generated a mask0. This mask has all the bits 1 in the given range. When we take the AND of this mask with A, all the bits that are not in range become 0 as whatever may be the bits in A, the bits at those positions in mask0 are 0 and 1 or 0 AND 0 is 0. Now, the bits in the range are 1 in mask0. This means that the bits that will be copied in mask 1 depend on the bits in A. If the bit at a particular position in A is 0, 0 will be copied to mask1 and if it is 1, 1 will be copied to mask1. (This is the basic property of logical AND).<br>So, we have now understood how we have generated mask1 and we have already talked about the procedure of generating the solution from B and mask1.<br><b>Focus</b><br>What do you think has been the focus of this question till here? The question is not too difficult. It focuses on the fact that in the case of AND, ‘0’ is dominant as whatever may be the other bit, if one bit is 0, the answer will be 0. Similarly, in the case of OR, ‘1’ is dominant as whatever may be the other bit, the answer will be 1 if one bit is 1.<br>So dear leader we hope that you have understood the procedure till here. If you have any doubts about it you may refer to the solution video to understand the procedure completely.</p>
+            <div class="youtube-video">
+               <iframe width="560" height="315" src="https://www.youtube.com/embed/v7pUZw-ZOYU?start=126&end=400" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p>So we used mask0 to produce mask1. Now, we will have a look at the procedure of creating mask0.Have a look at the image given below.<br> </p>
+            <div class="img"><img class="articleImages" name="set_bits_in_range_4.png" alt="img" /> </div>
+            <p>In the image above, we can see how we have generated the mask0. We have taken binary number 1 as mask m. We have also calculated the range which is given by right minus left plus one. Then we have left-shifted the mask m by the range. After this, we have subtracted 1 from the mask obtained above and then we have left-shifted this mask by left-1 and we got the mask0.<br> We recommend you watch the solution video to understand the above procedure completely. </p>
+            <div class="youtube-video">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/v7pUZw-ZOYU?start=401&end=547" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+              <p>So, dear reader, this was the whole procedure that we are going to follow. We have discussed everything in detail above as well as in the solution video . We hope that you have understood everything. The code for this is really simple if you have understood the process completely. We strongly recommend that you try to code this yourself and then have a look at the code below:</p> 
+               <div class="youtube-video">
+             <iframe width="560" height="315" src="https://www.youtube.com/embed/v7pUZw-ZOYU?start=0&end=547" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+    
+        </div> 
+         </div>
+       
+        <div class='codeEditor' id=>
+            <div class='editorialCode'>
+import java.io.*;
+import java.util.*;
+ 
+public class Main {
+ 
+  public static void main(String[] args){
+    Scanner scn = new Scanner(System.in);
+    int a = scn.nextInt();
+    int b = scn.nextInt();
+    int left = scn.nextInt();
+    int right = scn.nextInt();
+ 
+    int mask = (1 << (right - left + 1)) - 1;
+    mask = ((mask << (left - 1)) & a);
+    b |= mask;
+    System.out.println(b);
+    
+  }
+ 
+}
+
+
+
+
+     
+            </div>
+            <pre class='output'>
+            </pre>
+            <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+            <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+             <div class="content">
+                <P>The above code is explained in the solution video (). Refer to the solution video if you have any doubts about it. Now that we have discussed everything, let us discuss the time and space complexity.</P>
+
+        </div>
+        <div class="analysis">
+          <div class="sub-heading-1">Analysis:</div>
+          <div class="sub-heading-2">Time Complexity:</div>
+          <div class="content">
+                <p>O(1) because we have just performed some bitwise operations which take constant time.</p>
+          </div>
+
+          <div class="sub-heading-2">Space Complexity:</div>
+          <div class="content">
+            <p>because we have not used any extra memory.<br>So, dear reader, we hope that you have understood the complete procedure and the code also. If you still have any doubts about them, refer to the <a href="https://youtu.be/v7pUZw-ZOYU" target="_blank"> complete solution video. </a> With this, we have completed this problem.</p>
+               <div class="youtube-video">
+               <iframe width="560" height="315" src="https://www.youtube.com/embed/v7pUZw-ZOYU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                  <div class="sub-heading-2">Space Complexity:</div>
+          <div class="content">
+            <p>Here are some suggestions from our side that you do not t=want to miss</p>
+            <ol>
+                <li>We recommend you watch the <a href="https://youtu.be/v7pUZw-ZOYU" target="_blank"> solution video. </a> once. This will help you understand every concept in depth.</li>
+
+                <li>We also recommend that you try to solve this problem by another method too, where we can traverse every bit to solve this problem. Think about this solution. So, keep practicing and moving forward. Till then, Happy Coding!!!</li>
+            </ol>
+       
+        </div>
+        </div>
+    <div class="article-tags">
+         <div class="tag"> Article Tags:</div>
+          
+          
+        </div>
+        <div class="author">
+          <div class="sub-heading-2">Author:
+                  <span> Guneet Malhotra </span>
+              </div>
+          </div>
+        </div>
+        <div class="share-options">
+            <p class="share-options-heading"> Share this article</p>
+            <div class="">
+                <div class="span"><i class="fa fa-facebook"></i>
+                    <p class="social-media-name">Facebook</p>
+                </div>
+                <div class="span"><i class="fa fa-twitter"></i>
+                    <p class="social-media-name">Twitter</p>
+                </div>
+                <div class="span"><i class="fa fa-instagram"></i>
+                    <p class="social-media-name">Instagram</p>
+                </div>
+                <div class="span"><i class="fa fa-whatsapp"></i>
+                    <p class="social-media-name">Whatsapp</p>
+                </div>
+                <div class="span"><i class="fa fa-linkedin"></i>
+                    <p class="social-media-name">Linkedin</p>
+                </div>
+            </div>
+        </div>
+        <div class="lineBreak" style="margin-top: 30px;"></div>
+        <div class="img-zoom-div">
+            <div class="img-zoom-div-close-btn"><i class="fa fa-times"></i></div>
+            <div class="img-zoom-div-img"><img src="" alt="" /></div>
+        </div>
+      </div>
+</div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css" />
+<link
+    href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap"
+    rel="stylesheet">
+</div>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="./closeZoomImgDiv.js"></script>
+    <script src="./bookmark.js"></script>
+    <script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+
+
+    var aceEditorInstance = ace.edit( "editor1" );
+
+
+aceEditorInstance.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 2
+  var aceEditorInstance2 = ace.edit( "editor2" );
+
+
+aceEditorInstance2.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance2.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 3
+  var aceEditorInstance3 = ace.edit( "editor3" );
+
+
+aceEditorInstance3.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance3.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+/**
+ * Global variable to store the ids of the status of the current dragged ace editor.
+ */
+window.draggingAceEditor = {};
+
+function makeAceEditorResizable(editor){
+    var id_editor = editor.container.id;
+    var id_dragbar = '#' + id_editor + '_dragbar';
+    var id_wrapper = '#' + id_editor + '_wrapper';
+    var wpoffset = 0;
+    window.draggingAceEditor[id_editor] = false;
+
+    $(id_dragbar).mousedown(function(e) {
+        e.preventDefault();
+
+        window.draggingAceEditor[id_editor] = true;
+    
+        var _editor = $('#' + id_editor);
+        var top_offset = _editor.offset().top - wpoffset;
+    
+        // Set editor opacity to 0 to make transparent so our wrapper div shows
+        _editor.css('opacity', 0);
+    
+        // handle mouse movement
+        $(document).mousemove(function(e){
+            var actualY = e.pageY - wpoffset;
+            // editor height
+            var eheight = actualY - top_offset;
+            
+            // Set wrapper height
+            $(id_wrapper).css('height', eheight);
+            
+            // Set dragbar opacity while dragging (set to 0 to not show)
+            $(id_dragbar).css('opacity', 0.15);
+        });
+    });
+    
+    $(document).mouseup(function(e){
+        if (window.draggingAceEditor[id_editor])
+        {
+            var ctx_editor = $('#' + id_editor);
+    
+            var actualY = e.pageY - wpoffset;
+            var top_offset = ctx_editor.offset().top - wpoffset;
+            var eheight = actualY - top_offset;
+    
+            $( document ).unbind('mousemove');
+            
+            // Set dragbar opacity back to 1
+            $(id_dragbar).css('opacity', 1);
+            
+            // Set height on actual editor element, and opacity back to 1
+            ctx_editor.css('height', eheight).css('opacity', 1);
+            
+            // Trigger ace editor resize()
+            editor.resize();
+
+            window.draggingAceEditor[id_editor] = false;
+        }
+    });
+}
+
+
+makeAceEditorResizable(aceEditorInstance);
+
+
+
+</script>
+
+<script>
+    var run = document.getElementsByClassName('run')[0]
+    var input = document.getElementById('custom_input')
+    var language = document.getElementById('language')
+    
+
+    run.addEventListener('click', function(){
+        
+        var unformatted = document.getElementById('editor1').innerText
+        var formatted = unformatted.split("\n")
+        var final = []
+        formatted.forEach(ele=>{
+            if(!parseInt(ele))
+            final.push(ele)
+        
+        })
+        final = final.join(' ')
+        
+        var input_text = input.value
+        var final_input_text = input_text.split('\n').join(' ')
+
+
+         
+        //language
+        const languageValue = language.options[language.selectedIndex].value;
+        //const text = language.options[language.selectedIndex].text;
+        
+        //fetch statement here...
+
+        // fetch('/compileCode',{
+        //     method:'post',
+        //     headers:{
+        //         'Content-Type':'appliation/json'
+        //     },
+        //     body:JSON.stringify({
+        //         input:final_input_text,
+        //         code:final,
+        //         language:languageValue
+        //     })
+        // })
+
+             
+        alert(JSON.stringify({"code":final, "testcase":final_input_text, "language": languageValue}))
+        }
+    )
+</script>
+<script>
+    //tabbar btn control
+    function tabBar(index){
+       
+        if(index===0){ 
+            // show input textarea
+            document.getElementById('custom_output').style.display='none'
+            document.getElementById('custom_input').style.display='block'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 0.479)'
+        }
+        else{
+            // show output textarea
+            document.getElementById('custom_output').style.display='block'
+            document.getElementById('custom_input').style.display='none'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 0.479)'
+        }
+    }
+    
+</script>
+  </body>
+</html>

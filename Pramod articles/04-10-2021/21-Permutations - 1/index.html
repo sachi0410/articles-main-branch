@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>Permutations - 1</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" integrity="sha512-8qx1DL/2Wsrrij2TWX5UzvEaYOFVndR7BogdpOyF4ocMfnfkw28qt8ULkXD9Tef0bLvh3TpnSAljDC7uyniEuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css"
+    />
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css">
+   <!--  <link rel="stylesheet" href="query.css"> -->
+
+
+  </head>
+  <body>
+  <div class="article1">
+    <div class="article-1-outerbox">
+        <div class="Circles hide-on-med-and-down">
+          <div class="c1"></div>
+          <div class="c2"></div>
+        </div>
+        <div class="topic-name">
+            <p>Permutations - 1</p> 
+        </div>
+        <a class="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon="">
+            <i class="fa fa-chevron-down"></i>
+        </a>
+        <br><br><br><br>
+        <div class="qoute">
+            <br><br>
+            <p>
+            “Push yourself, because no one else is going to do it for you.”
+              
+            </p>
+            <i class="fa fa-quote-right qoute-icon"></i>
+        </div>
+    </div>
+    <div class="question-logo"><i class="fa fa-quora"></i></div>
+    <div class="ques-info">Permutations - 1</div>
+    <div class="article-info">
+        <div class="article-divider" style="margin-top:0px ;"></div>
+        <div class="article-content">
+          <div class="content">
+             <p>Dear reader, welcome to the next problem in the Recursion & Backtracking section named <p><b>Important Links :</b>
+ <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/recursion-and-backtracking/permutation-i-official/ojquestion" target="_blank"> ‘Permutations - 1’. </a> <br>You are standing at a very crucial point of your journey to master data structures and algorithms. Next series of problems are the conceptual building blocks of recursion and backtracking.<br> 
+Trust me, if you will conquer these sets of problems, then you will not face any problem in solving problems based on recursion and backtracking.
+ </p>
+
+</div>
+</div>
+    <div class="understandingProb">
+          <div class="sub-heading-1">Understanding problem: </div>
+            <div class="content">
+                <ul>
+                    <li>You are given a number of boxes (nboxes) and a number of non-identical items (ritems).</li>
+                    <li>You are required to place the items in those boxes and print all such configurations possible.</li>
+                    <li>Items are numbered from 1 to ritems.</li>
+                    <li>Note 1: Number of boxes is greater than number of items, hence some of the boxes may remain empty.</li>
+                    <li>Note 2: Check out the output format and write the recursive code as it is intended without changing signature. The judge can't force you but intends you to teach a concept.</li>
+                </ul> 
+           
+
+          </div>
+          <div class="sub-heading-2"> Example: </div>
+            <div class="content">
+                <p>Input: Number of boxes (nboxes) = 4, number of non-identical items (ritems) = 3 <br> Output: [1230, 1203, 1320, 1023, 1302, 1032, 2130, 2103, 3120, 0123, 3102, 0132, 2310, 2013, 3210, 0213, 3012, 0312, 2301, 2031, 3201, 0231, 3021, 0321]</p>
+
+            </div>
+        </div>
+        <div class="approach" id="approach">
+          <div class="sub-heading-1">Approach :</div>
+          <div class="sub-heading-2">Solution</div>
+            <div class="content">
+              <p>Do you remember the <b>permutation coefficient</b> formula which you probably learned in high school mathematics?</p>
+                <div class="img"><img class="articleImages" name="permutations_1.png" alt="img" /> </div>
+                <p><b>How </b> can we use the above formula to place ‘r’ non-identical items in ‘n’ boxes such that n >= r?<br>As you can see from the above formula, the 1st item has n choices, whether to be placed in any box. Now, after the 1st item is placed, since there are n-1 boxes empty, hence the 2nd item has n-1 choices of which box to be placed. Similarly, the 3rd item has n-3 choices and so on.<br> We will simulate this process until we have used all the r items. Initially, all boxes will be empty (denoted by box[i] = 0 for all i = 0 to n-1).<br> Let us define the faith, expectation of the recursive function and then derive a recursive relation by meeting expectation with faith.</p>
+                
+                <p><b>Expectation </b> We expect that our function will give us all the permutations of r non-identical items by placing them in n boxes. We will expect from the function that it will place the current item ci, in any one empty box.</p>
+                <div class="img"><img class="articleImages" name="permutations_2.png" alt="img" /> </div>
+                <p><b>Faith:</b> After placing the current item ci in any one box, we will keep faith on our recursive function, that it knows how to generate the permutation of the rest of the items in the empty boxes. Hence, we will keep faith that we can place all the rest items from (ci + 1 to ti) in some boxes.</p>
+                <div class="img"><img class="articleImages" name="permutations_3.png" alt="img" /> </div>
+
+                <p><b>Meeting Expectation with Faith:</b></p>
+                <p>As mentioned above, for the current item ci, we will try to place it in one of the empty boxes. Hence, we will run a loop over all the boxes, checking whether the box is empty or not.<br>If the box is empty, then we will place the current item in the box, in the <b>edge-pre area</b> by doing box[i] = ci, and call for the recursive function for the next item (ci + 1).<br>But, please keep in mind that after returning from the recursive function in the edge-post area, we will update the box back to empty, i.e. box[i] = 0.</p>
+                <div class="img"><img class="articleImages" name="permutations_4.png" alt="img" /> </div>
+                <p>Now, the only thing remaining is … the <b>BASE CASE.</b><br>We should stop if we have placed all the total number of items (ti) in some boxes. Hence, when the current item (ci) becomes greater than ti, then we will print the permutation and return.</p>
+                <div class="img"><img class="articleImages" name="permutations_5.png" alt="img" /> </div>
+                <p>In recursion tree:</p>
+                <ul>
+                    <li>The <b>LEVELS are equivalent to ITEMS.</b></li>
+                    <li>The <b>CHOICES/EDGES are equivalent to BOXES.</b></li>
+                </ul>
+                <div class="img"><img class="articleImages" name="permutations_6.png" alt="img" /> </div>
+
+             
+        </div> 
+         </div>
+       
+        <div class='codeEditor' id=>
+            <div class='editorialCode'>
+import java.io.*;
+import java.util.*;
+ 
+public class Main {
+ 
+  public static void permutations(int[] boxes, int ci, int ti){
+    if(ci > ti){
+      for(int i = 0; i < boxes.length; i++){
+        System.out.print(boxes[i]);
+      }
+      System.out.println();
+      return;
+    }
+    for(int i = 0; i < boxes.length; i++){
+      if(boxes[i] == 0){
+        boxes[i] = ci;
+        permutations(boxes, ci + 1, ti);
+        boxes[i] = 0;
+      }
+    }
+  }
+ 
+  public static void main(String[] args) throws Exception {
+    BufferedReader br = new 
+         BufferedReader(new InputStreamReader(System.in));
+    int nboxes = Integer.parseInt(br.readLine());
+    int ritems = Integer.parseInt(br.readLine());
+    permutations(new int[nboxes], 1, ritems);
+  }
+ 
+}
+
+
+
+
+         
+            </div>
+            <pre class='output'>
+            </pre>
+            <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+            <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+
+         <div class="content">
+            <p>Java Code is written and explained by our team in the solution video. Please refer to it for a better understanding of the algorithm and the implementation. Also, try to <b>dry run</b> the recursion by taking some examples and drawing the recursion tree. <p><b>Important Links :</b><a href="https://youtu.be/bQkwHBaNioE?list=TLGG9D1FaAgzfVAxNzA2MjAyMQ" target="_blank">solution video.</a></p>
+               <div class="youtube-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/QKkHCS5bq0I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+
+       </div>
+        <div class="analysis">
+          <div class="sub-heading-1">Analysis:</div>
+          <div class="sub-heading-2">Time Complexity:</div>
+          <div class="content">
+                <p>Since, there are r levels/depth of the recursion tree, and at each level, we are exploring all the n boxes and finding the empty ones, hence the time complexity will be O(n * n * …. r times) = O(<b>n</b><sup>r</sup>).</p>
+          </div>
+
+          <div class="sub-heading-2">Space Complexity:</div>
+          <div class="content">
+            <p>
+           We are using the box array to store the permutations. If we consider the space taken by this array, then space complexity will be <b>O(n).</b><br>Otherwise, since we are using recursion which takes function call space, and there are at max r depth, recursion will take O(r) space.<br> Hope that you liked the article on <b>’Permutations - 1’.</b><br>Subscribe to Pepcoding’s youtube channel for more such amazing video content on Data Structures & Algorithms. You can suggest any improvements to the article on our telegram channel, or on the youtube channel’s comment section. </p> 
+            
+       
+        </div>
+        </div>
+    <div class="article-tags">
+          <div class="tag"> Arrays</div>
+          
+          
+        </div>
+        <div class="author">
+          <div class="sub-heading-2">Author:
+                  <span> <a href="https://www.linkedin.com/in/archit-aggarwal-6a7716189/" target="_blank"> Archit Aggarwal</a> </span>
+              </div>
+          </div>
+        </div>
+        <div class="share-options">
+            <p class="share-options-heading"> Share this article</p>
+            <div class="">
+                <div class="span"><i class="fa fa-facebook"></i>
+                    <p class="social-media-name">Facebook</p>
+                </div>
+                <div class="span"><i class="fa fa-twitter"></i>
+                    <p class="social-media-name">Twitter</p>
+                </div>
+                <div class="span"><i class="fa fa-instagram"></i>
+                    <p class="social-media-name">Instagram</p>
+                </div>
+                <div class="span"><i class="fa fa-whatsapp"></i>
+                    <p class="social-media-name">Whatsapp</p>
+                </div>
+                <div class="span"><i class="fa fa-linkedin"></i>
+                    <p class="social-media-name">Linkedin</p>
+                </div>
+            </div>
+        </div>
+        <div class="lineBreak" style="margin-top: 30px;"></div>
+        <div class="img-zoom-div">
+            <div class="img-zoom-div-close-btn"><i class="fa fa-times"></i></div>
+            <div class="img-zoom-div-img"><img src="" alt="" /></div>
+        </div>
+      </div>
+</div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css" />
+<link
+    href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap"
+    rel="stylesheet">
+</div>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="./closeZoomImgDiv.js"></script>
+    <script src="./bookmark.js"></script>
+    <script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+
+
+    var aceEditorInstance = ace.edit( "editor1" );
+
+
+aceEditorInstance.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 2
+  var aceEditorInstance2 = ace.edit( "editor2" );
+
+
+aceEditorInstance2.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance2.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 3
+  var aceEditorInstance3 = ace.edit( "editor3" );
+
+
+aceEditorInstance3.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance3.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+/**
+ * Global variable to store the ids of the status of the current dragged ace editor.
+ */
+window.draggingAceEditor = {};
+
+function makeAceEditorResizable(editor){
+    var id_editor = editor.container.id;
+    var id_dragbar = '#' + id_editor + '_dragbar';
+    var id_wrapper = '#' + id_editor + '_wrapper';
+    var wpoffset = 0;
+    window.draggingAceEditor[id_editor] = false;
+
+    $(id_dragbar).mousedown(function(e) {
+        e.preventDefault();
+
+        window.draggingAceEditor[id_editor] = true;
+    
+        var _editor = $('#' + id_editor);
+        var top_offset = _editor.offset().top - wpoffset;
+    
+        // Set editor opacity to 0 to make transparent so our wrapper div shows
+        _editor.css('opacity', 0);
+    
+        // handle mouse movement
+        $(document).mousemove(function(e){
+            var actualY = e.pageY - wpoffset;
+            // editor height
+            var eheight = actualY - top_offset;
+            
+            // Set wrapper height
+            $(id_wrapper).css('height', eheight);
+            
+            // Set dragbar opacity while dragging (set to 0 to not show)
+            $(id_dragbar).css('opacity', 0.15);
+        });
+    });
+    
+    $(document).mouseup(function(e){
+        if (window.draggingAceEditor[id_editor])
+        {
+            var ctx_editor = $('#' + id_editor);
+    
+            var actualY = e.pageY - wpoffset;
+            var top_offset = ctx_editor.offset().top - wpoffset;
+            var eheight = actualY - top_offset;
+    
+            $( document ).unbind('mousemove');
+            
+            // Set dragbar opacity back to 1
+            $(id_dragbar).css('opacity', 1);
+            
+            // Set height on actual editor element, and opacity back to 1
+            ctx_editor.css('height', eheight).css('opacity', 1);
+            
+            // Trigger ace editor resize()
+            editor.resize();
+
+            window.draggingAceEditor[id_editor] = false;
+        }
+    });
+}
+
+
+makeAceEditorResizable(aceEditorInstance);
+
+
+
+</script>
+
+<script>
+    var run = document.getElementsByClassName('run')[0]
+    var input = document.getElementById('custom_input')
+    var language = document.getElementById('language')
+    
+
+    run.addEventListener('click', function(){
+        
+        var unformatted = document.getElementById('editor1').innerText
+        var formatted = unformatted.split("\n")
+        var final = []
+        formatted.forEach(ele=>{
+            if(!parseInt(ele))
+            final.push(ele)
+        
+        })
+        final = final.join(' ')
+        
+        var input_text = input.value
+        var final_input_text = input_text.split('\n').join(' ')
+
+
+         
+        //language
+        const languageValue = language.options[language.selectedIndex].value;
+        //const text = language.options[language.selectedIndex].text;
+        
+        //fetch statement here...
+
+        // fetch('/compileCode',{
+        //     method:'post',
+        //     headers:{
+        //         'Content-Type':'appliation/json'
+        //     },
+        //     body:JSON.stringify({
+        //         input:final_input_text,
+        //         code:final,
+        //         language:languageValue
+        //     })
+        // })
+
+             
+        alert(JSON.stringify({"code":final, "testcase":final_input_text, "language": languageValue}))
+        }
+    )
+</script>
+<script>
+    //tabbar btn control
+    function tabBar(index){
+       
+        if(index===0){ 
+            // show input textarea
+            document.getElementById('custom_output').style.display='none'
+            document.getElementById('custom_input').style.display='block'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 0.479)'
+        }
+        else{
+            // show output textarea
+            document.getElementById('custom_output').style.display='block'
+            document.getElementById('custom_input').style.display='none'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 0.479)'
+        }
+    }
+    
+</script>
+  </body>
+</html>
