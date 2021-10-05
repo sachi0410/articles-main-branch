@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <title>Combinations - 2</title>
+     <title>Is a Power of Two</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" integrity="sha512-8qx1DL/2Wsrrij2TWX5UzvEaYOFVndR7BogdpOyF4ocMfnfkw28qt8ULkXD9Tef0bLvh3TpnSAljDC7uyniEuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +35,7 @@
           <div class="c2"></div>
         </div>
         <div class="topic-name">
-            <p>Combinations - 2</p> 
+            <p>Is a Power of Two</p> 
         </div>
         <a class="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon="">
             <i class="fa fa-chevron-down"></i>
@@ -44,68 +44,56 @@
         <div class="qoute">
             <br><br>
             <p>
-            “Wake up with determination. Go to bed with satisfaction.”
+           “ Code is like humor. When you have to explain it, it’s bad.”
+           <br>
+            – Cory House
               
             </p>
             <i class="fa fa-quote-right qoute-icon"></i>
         </div>
     </div>
     <div class="question-logo"><i class="fa fa-quora"></i></div>
-    <div class="ques-info">Combinations - 2</div>
+    <div class="ques-info">Is a Power of Two</div>
     <div class="article-info">
         <div class="article-divider" style="margin-top:0px ;"></div>
         <div class="article-content">
           <div class="content">
-             <p>Dear reader, welcome to the next problem in the Recursion & Backtracking section named <p><b>Important Links :</b>
- <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/recursion-and-backtracking/combinations-2-official/ojquestion" target="_blank"> ‘Combinations - 2’. </a> <br>Please, I request you to solve the previous problems ‘Permutations - 1’, ‘Combinations - 1’ and ‘Permutations - 2’ before jumping on to this problem. Infact, I recommend you to watch these sets of problems in given order and try to complete the entire set together.
-
- </p>
- <p><b>Important Links :</b>
- <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/recursion-and-backtracking/permutation-i-official/ojquestion" target="_blank"> 'Permutations - 1' </a>, <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/recursion-and-backtracking/combinations-i-official/ojquestion" target="_blank"> 'Combinations - 1' </a>, <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/recursion-and-backtracking/permutations-ii-official/ojquestion" target="_blank"> 'Permutations - 2' </a></p>
-
-</div>
-</div>
-    <div class="understandingProb">
-          <div class="sub-heading-1">Understanding problem: </div>
-            <div class="content">
-                <ul>
-                    <li>You are given a number of boxes (nboxes) and a number of identical items (ritems).</li>
-                    <li>You are required to place the items in those boxes and print all such configurations possible.</li>
-                    <li>Items are identical and all of them are named 'i'.</li>
-                    <li>Note 1: Number of boxes is greater than number of items, hence some of the boxes may remain empty.</li>
-                    <li>Note 2: Check out the output format and write the recursive code as it is intended without changing signature. The judge can't force you but intends you to teach a concept.</li>
-                </ul> 
-           
-
-          </div>
-          <div class="sub-heading-2"> Example: </div>
-            <div class="content">
-                <p>Input: Number of boxes (nboxes) = 5, number of identical items (ritems) = 3 <br>Output: [ iii-- , ii-i- , ii--i , i-ii- , i-i-i , i--ii , -iii- , -ii-i , -i-ii , --iii ]</p>
-
-            </div>
+            <p>  Welcome back, dear reader. So, how is it going? So, today we will discuss a very simple problem called POWER OF TWO. So, what does this problem say? We are given a number n. We have to tell whether the number n is an absolute power of two or not. For instance, if we get the input as 16, we will print true as 16 is an absolute  power of two whereas if we get the input as 17, we will print false as it is not an absolute power of 2.</p>
+            <p><b>Important Links :</b><a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/bit-manipulation/is-a-power-of-2-official/ojquestion" target="_blank"> power of 2 </a>, <a href="https://youtu.be/v7pUZw-ZOYU" target="_blank"> complete solution video </a></p>
         </div>
         <div class="approach" id="approach">
           <div class="sub-heading-1">Approach :</div>
-          <div class="sub-heading-2">Solution</div>
+          <div class="sub-heading-2">Time Complexity:  O(1) <br><br> Space Complexity: O(1) <br><br> Algorithm:</div>
             <div class="content">
-              <p>In the previous solution for the same combination problem, we used LEVELS as boxes and choices as placing an item or not.<br>But in this article, we will try to find a solution by deriving a relation between permutation coefficient and <b>binomial coefficient.</b></p>
-                <div class="img"><img class="articleImages" name="combinations_2_1.png" alt="img" /> </div>
-                <div class="img"><img class="articleImages" name="combinations_2_2.png" alt="img" /> </div>
-                <p>If we are having 123 as a permutation, then we should eliminate all possibilities of 132 , 213, 231, 312 and 321, because in this case all items 1,2 and 3 are identical (= i).<br><b>Q)</b> So, how can we stop the remaining permutations?<br><b>R)</b> If you analyze carefully, if we generate all the permutations with <b>items in increasing order of their values</b> only, and discard all the other permutations, then we will be able to find combinations using permutations.<br>Hence, if the current item cb is placed in say box number b, then the next item cb + 1 should be placed in boxes in right of b, i.e. in any box from [b + 1, n] only.<br>Let us define the faith, expectation of the recursive function and then derive a recursive relation by meeting expectation with faith.<br><b>Expectation:</b> We expect that our function will give us all the combinations of r identical items by placing them in n boxes. We will expect from the function that it will place the current item ci, in any one empty box. Here, we also need the index of the last box lb.</p>
-                <div class="img"><img class="articleImages" name="combinations_2_3.png" alt="img" /> </div>
-                <p><b>Faith:</b> After placing the current item ci in box number b, we will keep faith on our recursive function, that it knows how to generate the combinations of the rest of the items in the empty boxes in range [b+1, n]. Hence, we will keep faith that we can place all the rest items from (ci + 1 to ti) in boxes (b+1 to n).</p>
-                <div class="img"><img class="articleImages" name="combinations_2_4.png" alt="img" /> </div>
-                <p><b>Meeting Expectation with Faith:</b><br>As mentioned above, for the current item ci, we will try to place it in one of the empty boxes. Hence, we will run a loop over the boxes after the last box, checking whether the box is empty or not.<br>If the box is empty, then we will place the current item in the box, in the edge-pre area by doing box[b] = ci, and call for the recursive function for the next item (ci + 1).<br>But, please keep in mind that after returning from the recursive function in the edge-post area, we will update the box back to empty, i.e. box[b] = 0.</p>
-                <div class="img"><img class="articleImages" name="combinations_2_5.png" alt="img" /> </div>
-                <p>Now, the only thing remaining is … the <b>BASE CASE.</b><br>We should stop if we have placed all the total number of items (ti) in some boxes. Hence, when the current item (ci) becomes greater than ti, then we will print the combination and return.<br>But, please note that values in boxes array are integer values (1, 2, 3, … r), but we need ’i’ for filled boxes (identical items). Hence, if boxes[i] = 0, then we will print “-” (empty) else i (filled).</p>
-                <div class="img"><img class="articleImages" name="combinations_2_6.png" alt="img" /> </div>
-                <p>In recursion tree:</p>
-                <ul>
-                    <li>The <b>LEVELS are equivalent to ITEMS</b> (but in increasing order only).</li>
-                    <li>The <b>CHOICES/EDGES are equivalent to BOXES.</b></li>
-                </ul>
-                <div class="img"><img class="articleImages" name="combinations_2_7.png" alt="img" /> </div>
-  
+            <ol>
+                <li>Take the input number from the user and subtract 1 from it.</li>
+                <li>Take the logical AND of n and n-1.</li>
+                <li>If the logical AND of n and n-1 is 0, the number n is an absolute power of two else it is not.</li>
+                
+            </ol>
+                <p><b>Explanation:</b></p>
+            <p>Let us see some absolute powers of 2 and learn some facts about them. Have a look at the image shown below:</p>
+            <div class="img"><img class="articleImages" name="is_a_power_of_two_1.png" alt="img" /> </div>
+            <p>Do you notice anything in these powers of 2? IIf you have a look at them carefully, 20 has zero 0’s and 21 has one 0. Similarly, 22 has 2 0’s after a one and so on. So, 2x is of form 100……0 where there are x 0’s present after 1.<br>Now think of some bitwise operation that we have already studied and try to relate it to this table above.<br> Have a look at the image shown below:</p>
+            <div class="img"><img class="articleImages" name="is_a_power_of_two_2.png" alt="img" /> </div>
+            <p>So, 1<<0 is 2<sup>0</sup> and 1<<1 is 2<sup>1</sup> and 1<<2 is 2<sup>2</sup>, and so on. So, 1<< x=2<sup>x</sup>.  Ok!!<br>So, we got this much, but how is it useful to us? Well, this is all just for the sake of your knowledge so that you can use these concepts in bigger problems that we will solve ahead of this problem. We have some more interesting concepts for you regarding this. Let us discuss those quickly and then we will discuss the solution to this problem (which is quite simple).</p>
+            <p><b>Some more Facts for You</b></p>
+            <p>As we have already discussed above, 1<< x=2<sup>x</sup>. But, this is only about 1<< x. What do we mean by a<< b? Can you think about it? Let us see this with the help of an example shown below:</p>
+            <div class="img"><img class="articleImages" name="is_a_power_of_two_3.png" alt="img" /> </div>
+            <p>As you can see above when we left shift ‘a’ by 1, it gets multiplied by 2. If we perform a<<2, it will get multiplied by 4.</p>
+                <div class="img"><img class="articleImages" name="is_a_power_of_two_4.png" alt="img" /> </div>
+            <p>So, in a nutshell, we can say that if we do a << b, we are doing a x 2b. Similarly, we want you to try this on the right shift operator as well. As in the above case, we saw that 1<< x gives us 2x similarly try to find out the value of 1>>x yourself using the same logic as we have used in the diagrams above.<br><b>You will find out that 1>>x means 2<sup>-x</sup> and a>>b means a x 2<sup>-b</sup>. So, doing the left shift by 1 once means multiplying a number by two, and doing the right shift by 1 means that we are dividing the number by two.</b><br>Now we have gained enough knowledge for the further questions to be solved and learned a lot of facts about the absolute powers of 2, let us now learn how to solve this question.</p>
+            <p><b>Solution </b></p>
+            <p>So, we know that the numbers that are absolute powers of 2 have 1 at the MSB and have x zeroes where x is the power of 2. Let us take the example of 2<sup>7</sup>.</p>
+            <div class="img"><img class="articleImages" name="is_a_power_of_two_5.png" alt="img" /> </div>
+            <p><b>So, we can see that the value of n AND n-1 is 0. This is a property for all the absolute powers of 2. So, if a number is an absolute power of 2 then n AND n-1 will be 0.</b><br>We recommend you watch the solution video to understand the concepts that we have discussed till here completely.</p>
+                <div class="youtube-video">
+               <iframe width="560" height="315" src="https://www.youtube.com/embed/I80Ovvi_nRU?start=14&end=293" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+                <p> Now that we know the complete procedure, let us write the code for the same.</p>
+
+
+            
     
         </div> 
          </div>
@@ -117,28 +105,10 @@ import java.util.*;
  
 public class Main {
  
-  public static void combinations(int[] boxes, int ci, int ti, int lb){
-    if(ci > ti){
-      for(int i = 0; i < boxes.length; i++){
-        System.out.print(boxes[i] == 0? "-" : "i");
-      }
-      System.out.println();
-      return;
-    }
-    for(int b = lb + 1; b < boxes.length; b++){
-      if(boxes[b] == 0){
-        boxes[b] = ci;
-        combinations(boxes, ci + 1, ti, b);
-        boxes[b] = 0;
-      }
-    }
-  }
- 
-  public static void main(String[] args) throws Exception {
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    int nboxes = Integer.parseInt(br.readLine());
-    int ritems = Integer.parseInt(br.readLine());
-    combinations(new int[nboxes], 1, ritems, -1);
+  public static void main(String[] args){
+    Scanner scn = new Scanner(System.in);
+    int n = scn.nextInt();
+    System.out.println((n & (n - 1)) == 0);
   }
  
 }
@@ -146,50 +116,52 @@ public class Main {
 
 
 
-
-
-         
+     
             </div>
             <pre class='output'>
             </pre>
             <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
             <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
-
-         <div class="content">
-            <p>Java Code is written and explained by our team in the solution video. Please refer to it for a better understanding of the algorithm and the implementation.</p>
-            <p><b>Important Links :</b><a href="https://www.youtube.com/watch?v=f6cL-VMIfTY&list=TLGGJFKMpKAmgoUxNzA3MjAyMQ" target="_blank">solution video.</a></p>
-               <div class="youtube-video">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/f6cL-VMIfTY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+             <div class="content">
+                <P>The above code is very simple and it is completely based on the facts that we have studied above. Still, if you have any doubts regarding it, refer to the solution video to clear them. Now that we have discussed the code and the procedure, let us discuss the time and space complexity.</P>
+                 <div class="youtube-video">
+               <iframe width="560" height="315" src="https://www.youtube.com/embed/I80Ovvi_nRU?start=299&end=348" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
 
-       </div>
+        </div>
         <div class="analysis">
           <div class="sub-heading-1">Analysis:</div>
           <div class="sub-heading-2">Time Complexity:</div>
           <div class="content">
-                <p>Since, there are r levels/depth of the recursion tree, and at each level, we are exploring at max n boxes and finding the empty ones, hence the time complexity will be O(n * n * …. r times) = O(n<sup>r</sup>)</b>.</p>
+                <p>The time complexity of the above solution is O(1) as we have just used some bitwise operators which work in constant time.</p>
           </div>
 
           <div class="sub-heading-2">Space Complexity:</div>
           <div class="content">
-            <p>We are using the box array to store the combinations. If we consider the space taken by this array, then space complexity will be <b>O(n).</b><br>
-Otherwise, since we are using recursion which takes function call space, and there are at max r depth, recursion will take <b>O(r)</b> space.<br> 
-Hope that you liked the article on <b>‘Combinations - 2’.</b><br> 
-Subscribe to Pepcoding’s youtube channel for more such amazing video content on Data Structures & Algorithms. You can suggest any improvements to the article on our telegram channel, or on the youtube channel’s comment section. 
-</p> 
-            
+            <p>The space complexity is also O(1) as we have not used any extra space.<br>So, dear reader, we hope that you have understood the above procedure completely. If you still have any doubts related to it, refer to the <a href="https://youtu.be/I80Ovvi_nRU" target="_blank"> complete solution video </a> to clear all your doubts. With this, we have completed this problem.</p>
+               <div class="youtube-video">
+               <iframe width="560" height="315" src="https://www.youtube.com/embed/I80Ovvi_nRU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                  <div class="sub-heading-2">Space Complexity:</div>
+          <div class="content">
+            <p>Here are some suggestions from our side that you do not want to miss:</p>
+            <ol>
+                <li>We suggest that you should watch the complete solution video once so that you do not miss out on any little concept that has been explained in it. </li>
+
+                <li>We also suggest that you try to analyze the right shift operator yourself in the same way as we have analyzed the left shift operator. This will give you more insight into the concepts. Till then, Happy Coding!!!!</li>
+            </ol>
        
         </div>
         </div>
     <div class="article-tags">
-          <div class="tag"> Arrays</div>
+         <div class="tag"> Article Tags:</div>
           
           
         </div>
         <div class="author">
           <div class="sub-heading-2">Author:
-                  <span> <a href="https://www.linkedin.com/in/archit-aggarwal-6a7716189/" target="_blank"> Archit Aggarwal</a> </span>
+                  <span> Guneet Malhotra </span>
               </div>
           </div>
         </div>
