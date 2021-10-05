@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>RUSSIAN DOLL ENVELOPES</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" integrity="sha512-8qx1DL/2Wsrrij2TWX5UzvEaYOFVndR7BogdpOyF4ocMfnfkw28qt8ULkXD9Tef0bLvh3TpnSAljDC7uyniEuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css"
+    />
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css">
+   <!--  <link rel="stylesheet" href="query.css"> -->
+
+
+  </head>
+  <body>
+  <div class="article1">
+    <div class="article-1-outerbox">
+        <div class="Circles hide-on-med-and-down">
+          <div class="c1"></div>
+          <div class="c2"></div>
+        </div>
+        <div class="topic-name">
+            <p>RUSSIAN DOLL ENVELOPES
+            </p> 
+        </div>
+        <a class="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon="">
+            <i class="fa fa-chevron-down"></i>
+        </a>
+        <br><br><br><br>
+        <div class="qoute">
+            <br><br>
+            <p>Rivers know this: there is no hurry. We shall get there some day. </p>
+            <i class="fa fa-quote-right qoute-icon"></i>
+        </div>
+    </div>
+    <div class="question-logo"><i class="fa fa-quora"></i></div>
+    <div class="ques-info">RUSSIAN DOLL ENVELOPES
+    </div>
+    <div class="article-info">
+        <div class="article-divider" style="margin-top:0px ;"></div>
+        <div class="article-content">
+          <div class="content">
+            <p>Welcome Back Reader!
+            </p>
+            <p> In this article we are going to solve a hard level problem of Leetcode, “Russian Doll Envelopes”. </p>
+            <p>We are sure if you pay close attention to the coming discussion, you will find it easily comprehensible.
+            </p>
+            <p>You should go through the problem to understand its outline.
+            </p><br>
+            <p><b>Important Links :</b> <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/dynamic-programming/russian-doll-envelopes-official/ojquestion" target="_blank">Problem Link</a>, <a href="https://youtu.be/Mud_QjUwbw8" target="_blank">Question Video</a> , <a href="https://youtu.be/Mud_QjUwbw8" target="_blank">Solution Video</a> </p><br>
+            <p>Prerequisite of this problem is “Longest Increasing Subsequence” (LIS), because this problem is just an application of that problem. However, this problem is not exactly based on LIS, but yes it can be reduced to LIS for sure. This is quite an interesting problem. Stay tuned.
+            </p> 
+            <p>Before you move any further, it is advised that you give <a href="https://youtu.be/o1h3aoeSTOU" target="_blank">this problem</a> a fair try.
+            </p>
+            <p>Let’s jump to the problem.</p>              
+           </div>
+        </div>
+       
+        <div class="understandingProb">
+          <div class="sub-heading-1">Understanding the problem:
+          </div>
+            <div class="content">
+              <ul>
+                <li>You are given a number n, representing the number of envelopes.
+                </li>
+                <li>You are given n pair of numbers, representing the width and height of each envelope.
+                </li>
+                <li>You are required to print the count of the maximum number of envelopes that can be nested inside each other.
+                </li>
+                <li>Rotation is not allowed.
+                </li>
+              </ul>
+          
+             <p>Reader, meditate on the fact that to nestle envelope 1 in envelope 2,  the width and height of envelope 1 should be strictly lesser than that of envelope 2.
+            </p>
+            <p><b>The prerequisites of this question are “Longest Increasing Subsequence”, “Maximum Non-overlapping Bridges” and “Comparable”, so check them out before going any further.
+            </b>
+            </p>
+            <p><a href="https://youtu.be/odrfUCS9sQk" target="_blank">Longest Increasing Subsequence- Solution video</a></p>
+            <p><a href="https://youtu.be/o1h3aoeSTOU" target="_blank">Longest Increasing Subsequence- Solution video</a></p>
+            <p><a href="https://youtu.be/DE835GvxZMQ" target="_blank">Longest Increasing Subsequence- Solution video</a></p>
+          </div>
+        </div>
+          <div class="approach" id="approach">
+          <div class="sub-heading-1">Approach:</div>
+            <div class="content">
+             <p>As we have studied in “Maximum Non-overlapping Bridges”, we are going to sort the width and apply “LIS” (Longest Increasing Subsequence) on the height.
+            </p>
+             <p>On performing these two actions,  the widths as well as the heights will get arranged in an increasing order.
+            </p>
+             <p>We obtain the longest subsequence by applying “LIS”, which gives us the maximum number of nested envelopes.
+            </p>
+            </div>
+            <div class="sub-heading-2">HOW
+            </div>
+            <div class="content">
+              <p>Now we discuss how to code this problem using the above approach and its prerequisites.
+              </p>
+            </div>
+          </div>
+        <div class='codeEditor' id="1">
+            <div class='editorialCode'>
+              import java.io.*;
+              import java.util.*;
+               
+              public class Main {
+                  
+                  public static class Envelope implements Comparable< Envelope>{  //1
+                      int w;
+                      int h;
+                      Envelope(int w, int h){
+                          this.w=w;
+                          this.h=h;
+                      }
+                      public int compareTo(Envelope o){  //1
+                          return this.w-o.w;
+                      }
+                  }
+               
+                  public static void main(String[] args) throws Exception {
+                      Scanner scn=new Scanner(System.in);
+                      int n=Integer.parseInt(scn.nextLine());  //2
+                      Envelope[]envlps=new Envelope[n];
+                      for(int i=0;i< n;i++){            //3
+                          String line=scn.nextLine();
+                          String[] parts=line.split(" ");
+                          int w=Integer.parseInt(parts[0]);
+                          int h=Integer.parseInt(parts[1]);
+                          envlps[i]=new Envelope(w,h);
+                      }
+                      
+                      Arrays.sort(envlps); //4
+                      int[]dp=new int[n]; //5
+                      int omax=0;  //omax=overall max
+                      for(int i=0;i< dp.length;i++){
+                          int max=0;
+                          for(int j=0;j< i;j++){
+                              if(envlps[j].h< envlps[i].h && envlps[j].w< envlps[i].w){  //6
+                                  if(dp[j]>max){
+                                      max=dp[j];
+                                  }
+                              }
+                          }
+                          dp[i]=max+1;
+                          if(dp[i]>omax){  //7
+                              omax=dp[i];
+                          }
+                      }
+                      
+                      System.out.println(omax); //8
+                  }
+               
+              }
+            </div>
+            <pre class='output'>
+            </pre>
+            <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
+            <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
+        </div>
+        <div class="analysis">
+        <div class="content">
+          <ol>
+            <li>We create a class Envelope which implements Comparable and has 2 data members, “w” (width) and “h” (height).<br>
+              Since we want to sort the envelopes on the basis of the width, we write a compareTo() function for the same.<br>
+              In case you don’t know how Comparable interface is used, we suggest you watch the following video. <a href="https://youtu.be/DE835GvxZMQ" target="_blank" >Comparable- Solution video
+              </a>
+              </li>
+            <li>The number of envelopes, n is taken as an input and an array of type Envelope is formed of size n. 
+            </li>
+            <li>Next, for each of these envelopes, we take their width and height as the input and set them in the array “envlps” against their corresponding index.
+            </li>
+            <li>As discussed in the approach, we sort the array “envlps” on the basis of their widths ( by using the Comparable interface in the class Envelope).
+            </li>
+            <li>Now we make an array “dp” which is the same size as “envlps” for applying LIS on heights.
+            </li>
+            <li>We check if the height and width of the first envelope is strictly smaller than that of the second envelope. If this condition is true, only then can they be nested. 
+           <br>This check is mainly done so that envelopes of the same dimensions are not allowed to nest.
+          </li>
+            <li> Now we compare the value of dp[i] with the overall max and change the value of overall max if needed.
+            </li>
+            <li>The final value of “omax” obtained at last is printed.
+            </li>
+            <p>Now that we have reached the end of this discussion, we again request you to watch the pre- requisite videos mentioned earlier in case you get stuck anywhere.
+              <br>You can also watch the solution video of “Russian Doll Envelopes” for resolving any other issues.
+             <a href="https://youtu.be/Mud_QjUwbw8" target="_blank">Russian Doll Envelopes- Solution video
+            </a> </p>
+          </ol>
+        <p>All the best for an exciting future!<br>
+          Happy Coding!</p>
+        </div>
+        </div>
+    </div>
+
+        <div class="article-tags">
+
+          <div class="tag">Arrays </div>
+          <div class="tag">Dynamic Programming </div>
+
+        </div>
+        <div class="author">
+          <div class="sub-heading-2">Author:
+                <span>Shreeya Gupta </span>
+          </div>
+        </div>
+        <div class="share-options">
+            <p class="share-options-heading">Share this article</p>
+            <div class="">
+                <div class="span"><i class="fa fa-facebook"></i>
+                    <p class="social-media-name">Facebook</p>
+                </div>
+                <div class="span"><i class="fa fa-twitter"></i>
+                    <p class="social-media-name">Twitter</p>
+                </div>
+                <div class="span"><i class="fa fa-instagram"></i>
+                    <p class="social-media-name">Instagram</p>
+                </div>
+                <div class="span"><i class="fa fa-whatsapp"></i>
+                    <p class="social-media-name">Whatsapp</p>
+                </div>
+                <div class="span"><i class="fa fa-linkedin"></i>
+                    <p class="social-media-name">Linkedin</p>
+                </div>
+            </div>
+        </div>
+        <div class="lineBreak" style="margin-top: 30px;"></div>
+        <div class="img-zoom-div">
+            <div class="img-zoom-div-close-btn"><i class="fa fa-times"></i></div>
+            <div class="img-zoom-div-img"><img src="" alt="" /></div>
+        </div>
+      </div>
+</div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@1,500&family=Fredoka+One&family=Marck+Script&family=Merienda:wght@700&family=Parisienne&family=Source+Code+Pro:wght@600&family=Varela+Round&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.2.0/styles/monokai.css" />
+<link
+    href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Source+Code+Pro:wght@300&family=Spartan:wght@500&display=swap"
+    rel="stylesheet">
+</div>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="./closeZoomImgDiv.js"></script>
+    <script src="./bookmark.js"></script>
+    <script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+
+
+    var aceEditorInstance = ace.edit( "editor1" );
+
+
+aceEditorInstance.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 2
+  var aceEditorInstance2 = ace.edit( "editor2" );
+
+
+aceEditorInstance2.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance2.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+
+// editor 3
+  var aceEditorInstance3 = ace.edit( "editor3" );
+
+
+aceEditorInstance3.setTheme("ace/theme/twilight");
+// inline must be true to syntax highlight
+aceEditorInstance3.getSession().setMode( { path: "ace/mode/c_cpp", inline: true } );
+/**
+ * Global variable to store the ids of the status of the current dragged ace editor.
+ */
+window.draggingAceEditor = {};
+
+function makeAceEditorResizable(editor){
+    var id_editor = editor.container.id;
+    var id_dragbar = '#' + id_editor + '_dragbar';
+    var id_wrapper = '#' + id_editor + '_wrapper';
+    var wpoffset = 0;
+    window.draggingAceEditor[id_editor] = false;
+
+    $(id_dragbar).mousedown(function(e) {
+        e.preventDefault();
+
+        window.draggingAceEditor[id_editor] = true;
+    
+        var _editor = $('#' + id_editor);
+        var top_offset = _editor.offset().top - wpoffset;
+    
+        // Set editor opacity to 0 to make transparent so our wrapper div shows
+        _editor.css('opacity', 0);
+    
+        // handle mouse movement
+        $(document).mousemove(function(e){
+            var actualY = e.pageY - wpoffset;
+            // editor height
+            var eheight = actualY - top_offset;
+            
+            // Set wrapper height
+            $(id_wrapper).css('height', eheight);
+            
+            // Set dragbar opacity while dragging (set to 0 to not show)
+            $(id_dragbar).css('opacity', 0.15);
+        });
+    });
+    
+    $(document).mouseup(function(e){
+        if (window.draggingAceEditor[id_editor])
+        {
+            var ctx_editor = $('#' + id_editor);
+    
+            var actualY = e.pageY - wpoffset;
+            var top_offset = ctx_editor.offset().top - wpoffset;
+            var eheight = actualY - top_offset;
+    
+            $( document ).unbind('mousemove');
+            
+            // Set dragbar opacity back to 1
+            $(id_dragbar).css('opacity', 1);
+            
+            // Set height on actual editor element, and opacity back to 1
+            ctx_editor.css('height', eheight).css('opacity', 1);
+            
+            // Trigger ace editor resize()
+            editor.resize();
+
+            window.draggingAceEditor[id_editor] = false;
+        }
+    });
+}
+
+
+makeAceEditorResizable(aceEditorInstance);
+
+
+
+</script>
+
+<script>
+    var run = document.getElementsByClassName('run')[0]
+    var input = document.getElementById('custom_input')
+    var language = document.getElementById('language')
+    
+
+    run.addEventListener('click', function(){
+        
+        var unformatted = document.getElementById('editor1').innerText
+        var formatted = unformatted.split("\n")
+        var final = []
+        formatted.forEach(ele=>{
+            if(!parseInt(ele))
+            final.push(ele)
+        
+        })
+        final = final.join(' ')
+        
+        var input_text = input.value
+        var final_input_text = input_text.split('\n').join(' ')
+
+
+         
+        //language
+        const languageValue = language.options[language.selectedIndex].value;
+        //const text = language.options[language.selectedIndex].text;
+        
+        //fetch statement here...
+
+        // fetch('/compileCode',{
+        //     method:'post',
+        //     headers:{
+        //         'Content-Type':'appliation/json'
+        //     },
+        //     body:JSON.stringify({
+        //         input:final_input_text,
+        //         code:final,
+        //         language:languageValue
+        //     })
+        // })
+
+             
+        alert(JSON.stringify({"code":final, "testcase":final_input_text, "language": languageValue}))
+        }
+    )
+</script>
+<script>
+    //tabbar btn control
+    function tabBar(index){
+       
+        if(index===0){ 
+            // show input textarea
+            document.getElementById('custom_output').style.display='none'
+            document.getElementById('custom_input').style.display='block'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 0.479)'
+        }
+        else{
+            // show output textarea
+            document.getElementById('custom_output').style.display='block'
+            document.getElementById('custom_input').style.display='none'
+            document.getElementById('tabBar_1').style.color='rgba(0, 0, 0, 1)'
+            document.getElementById('tabBar_0').style.color='rgba(0, 0, 0, 0.479)'
+        }
+    }
+    
+</script>
+  </body>
+</html>
