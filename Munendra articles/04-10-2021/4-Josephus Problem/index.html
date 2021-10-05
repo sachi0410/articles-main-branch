@@ -82,7 +82,6 @@
             <p>There were 8 soldiers numbered from 0 to 7 and k=3. So, the king starts from the 0th soldier and leaves k-1 i.e. 2 soldiers (0 and 1) and kills the third soldier i.e. the soldier numbered 2 dies. Again, he leaves 2 more soldiers and he kills the soldier numbered 5. Again, he leaves 2 soldiers and the soldier numbered 0 dies. After this, he has completed a circle and 3 soldiers are dead. The circle of remaining soldiers is shown in the image above. Now, he starts from soldier numbered 1 and leaves the soldier numbered 1 and 2 and kills the third soldier i.e the soldier numbered 4. After this, he leaves the next two soldiers and the soldier numbered 1 dies. Now, we are left with only 3 soldiers. So, the king moves in a clockwise direction again, leaves the first two soldiers and kills the third one (numbered 7). Now, we have only two soldiers left. So, the first soldier (numbered 3) is left and the second (numbered 6) is left. So, the king reaches the first soldier back again (numbered 3). He kills this soldier and the soldier numbered 6 remains alive.
             </p>
             <p>So, dear reader, we hope that you have understood the problem completely. If you still have any doubts regarding the question, refer to the JOSEPHUS PROBLEM VIDEO (0:00-2:41) to understand the problem completely. We recommend you try to solve this problem on your own first and then move to the solution.
-
             </p>
             <div class="youtube-video">
               <iframe width="560" height="315" src="https://www.youtube.com/embed/dzYq5VEMZIg?start=1&end=161" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -90,8 +89,7 @@
             </div>
            </div>
          <div class="approach" id="approach">
-          <div class="sub-heading-1">Approach
-          </div>
+          <div class="sub-heading-1">Approach:</div>
             <div class="content">
               <p>Let us try to think of how we can think of this problem as a large problem and how we can break it into smaller problems so that we can apply recursion.</p>
               <p>Let us take the same example as we took above. Let us say that we have a total of 8 soldiers and the value of k=3. So, the soldiers are standing in the circle and the king kills the 3rd soldier keeping the first two soldiers alive (for now). So, the soldier numbered 2 dies.
@@ -125,7 +123,7 @@
           <p>We will now see how we can transform our problem into a smaller problem to be solved by recursion.
           </p>
             </div>  
-            <div class="sub-heading-2">The Transformation
+            <div class="sub-heading-2">The Transformation:
 
             </div>
             <div class="content">
@@ -154,8 +152,7 @@
 
 
             </div>
-            <div class="sub-heading-2">The Recursive Procedure
-
+            <div class="sub-heading-2">The Recursive Procedure:
             </div>
             <div class="content">
               <p>Let us take a small test case and dry run the procedure that we will follow. Try to find out which soldier will be alive at the end if there are 5 soldiers and k=3. So, did you get it? The answer is 3 (see img-8)
@@ -169,18 +166,19 @@
               <div class="img"><img class="articleImages" name="josephus_problem_10.png" alt="img" /></div>
               <p>So, let us try to solve this problem using recursion now. The king will kill the soldier numbered 2 first as k=3.
               </p>
+              <div class="img"><img class="articleImages" name="josephus_problem_11.png" alt="img" /></div>
               <p>Now when the king has killed the soldier, the circle starts from the very next soldier and this is what we have shown in the diagram (img-8). This is why 0 and 1 came at the front as the circle will now start from 3. Now, we will apply our recursion and we will say that we now have n-1 i.e. 4 soldiers in the circle and again the soldier at the kth position will be killed.
               </p>
-              <div class="img"><img class="articleImages" name="josephus_problem_11.png" alt="img" /></div>
+              <div class="img"><img class="articleImages" name="josephus_problem_12.png" alt="img" /></div>
 
 
               <p>Again, we will keep on applying the same procedure, until only one element remains. By this, we will get the soldier which remains alive at the end. We recommend you watch the solution video to understand how recursion will work in the above scenario.
-
               </p>
               <div class="youtube-video">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/dzYq5VEMZIg?start=575&end=881" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/dzYq5VEMZIg?start=581&end=881" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
               <p>Now that we have understood the above procedure, let us write the code.
+
               </p>
               <p><b>Java Code</b></p>
             </div>
@@ -219,20 +217,17 @@
         </div>
    
         <div class="content">
-     
-
           <p>Dear reader, refer to the solution video to understand the above code completely and clear your doubts about the above code if any. Now that we have written the code as well, let us move to the time and space complexity analysis.
-
           </p>
           <div class="youtube-video">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/dzYq5VEMZIg?start=882" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         
-
+        </div>
 
 
          <div class="analysis">
-          <div class="sub-heading-2">Time and Space Complexity Analysis:
+          <div class="sub-heading-1">Time and Space Complexity Analysis:
           </div>
             <div class="sub-heading-2">Time Complexity: </div>
             <div class="content">
@@ -244,40 +239,26 @@
             <div class="content">
               <p>The space complexity of the above solution is O(h) where h is the height of the recursion stack.
               </p>
+              <p>So, dear reader, we hope that you have understood the time and space complexity as well. If you have any doubts regarding the procedure or the code, refer to the <a href="https://youtu.be/dzYq5VEMZIg" target="_blank">complete solution video </a>to understand everything properly and clear all your doubts. With this, we have completed this problem.
+              </p>
+            </div>
+            <div class="sub-heading-2">Suggestions:</div>
+            <div class="content">
+              <p>Here are some suggestions from our side that you do not want to miss:
+              </p>
+              <ol>
+                <li>This problem is not that difficult if you think about it. So, the lesson that you should learn from here is that do not fear any problem as it might appear difficult to you but it is not that difficult to solve sometimes and on the other hand, there might be various problems which might appear simple to you but they need not be that simple. So, overconfidence and underconfidence, both are harmful for us.
+                </li>
+                <li>We used modulus operation in the formula that we derived. Why? This is because we have a circular movement and the values move in circular motion with the help of a modulus operation. We highly recommend you revise the <a href="https://youtu.be/NdaEQPlH1vE" target="_blank">queue data structure </a> here, where we talked about this modulus operation and its circular nature in great detail. 
+                </li>
+                <li>We recommend you watch the <a href="https://youtu.be/dzYq5VEMZIg" target="_blank">complete solution video</a> once. This will give you the proper understanding and the insight of the problem. So, keep practicing and moving forward.</li>
+              </ol>
+              <p>All the best for an exciting future!<br>
+                Happy Coding!
+                </p>
             </div>
         </div>
-        </div>
-    
-      <div class="content">
-        <p>So, dear reader, we hope that you have understood the time and space complexity as well. If you have any doubts regarding the procedure or the code, refer to the complete solution video to understand everything properly and clear all your doubts. With this, we have completed this problem. </p>
-        <div class="youtube-video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/dzYq5VEMZIg?start=4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="sub-heading-2">Suggestions:</div>
-        <div class="content">
-          <p>Here are some suggestions from our side that you do not want to miss:
-          </p>
-          <ol>
-            <li>This problem is not that difficult if you think about it. So, the lesson that you should learn from here is that do not fear any problem as it might appear difficult to you but it is not that difficult to solve sometimes and on the other hand, there might be various problems which might appear simple to you but they need not be that simple. So, overconfidence and underconfidence, both are harmful for us.
-            </li>
-            <li>We used modulus operation in the formula that we derived. Why? This is because we have a circular movement and the values move in circular motion with the help of a modulus operation. We highly recommend you revise the queue data structure here, where we talked about this modulus operation and its circular nature in great detail. 
-            </li>
-            <div class="youtube-video">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/NdaEQPlH1vE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <li>We recommend you watch the complete solution video once. This will give you the proper understanding and the insight of the problem. So, keep practicing and moving forward. </li>
-          <div class="youtube-video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/dzYq5VEMZIg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-          </ol>
-        </div>
-       
-        <p>All the best for an exciting future!<br>
-          Happy Coding!
-          </p>
-      </div>
-
-      </div>
+    </div>
 
         <div class="article-tags">
 
