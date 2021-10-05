@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <title>LEXICOGRAPHICAL NUMBERS</title>
+     <title>LONGEST INCREASING SUBSEQUENCE</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js" integrity="sha512-GZ1RIgZaSc8rnco/8CXfRdCpDxRCphenIiZ2ztLy3XQfCbQUSCuk8IudvNHxkRA3oUg6q0qejgN/qqyG1duv5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.min.js" integrity="sha512-8qx1DL/2Wsrrij2TWX5UzvEaYOFVndR7BogdpOyF4ocMfnfkw28qt8ULkXD9Tef0bLvh3TpnSAljDC7uyniEuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +35,7 @@
           <div class="c2"></div>
         </div>
         <div class="topic-name">
-            <p>LEXICOGRAPHICAL NUMBERS
+            <p>LONGEST INCREASING SUBSEQUENCE
             </p> 
         </div>
         <a class="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon="">
@@ -52,19 +52,19 @@
         </div>
     </div>
     <div class="question-logo"><i class="fa fa-quora"></i></div>
-    <div class="ques-info">LEXICOGRAPHICAL NUMBERS
+    <div class="ques-info">LONGEST INCREASING SUBSEQUENCE
     </div>
     <div class="article-info">
         <div class="article-divider" style="margin-top:0px ;"></div>
         <div class="article-content">
           <div class="content">
             <p>Welcome Reader! </p>
-            <p> We are going to discuss the question, “Lexicographical Numbers” in this article.
-            </p>
-            <p>We suggest you go through the problem link first, to get an outline of the question.
-            </p><br>
-            <p><b>Important Links :</b> <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/recursion-and-backtracking/lexicographical-numbers-official/ojquestion" target="_blank">Problem Link</a>, <a href="https://youtu.be/gRo86WqFYSE" target="_blank">Question Video</a> , <a href="https://youtu.be/gRo86WqFYSE" target="_blank">Solution Video</a> </p>
+            <p> In this article we are going to discuss a classic dynamic programming problem, “Longest Increasing Subsequence”.</p>
+            <p>If you haven’t gone through its problem already we suggest you do it now.</p><br>
+            <p><b>Important Links :</b> <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/dynamic-programming/lis-official/ojquestion" target="_blank">Problem Link</a>, <a href="https://youtu.be/odrfUCS9sQk" target="_blank">Question Video</a> , <a href="https://youtu.be/odrfUCS9sQk" target="_blank">Solution Video</a> </p>
              <br><p>Let’s jump to the problem.</p>              
+         
+
            </div>
         </div>
        
@@ -72,63 +72,76 @@
           <div class="sub-heading-1">Understanding the problem:
           </div>
             <div class="content">
-             <p>Lexicographical order is arranging the numbers/alphabets in a dictionary order.
-              For example, “zeal” comes before “zen” in the dictionary because alphabetically, ‘a’ comes before ‘n’.
-             </p>
-            <p>Reader, meditate on the fact that the length of the strings/ numbers plays no role in such cases when determining their lexicographical order.
-
+              <ol>
+                <li>You are given a number n, representing the number of elements.
+                </li>
+                <li> You are given n numbers, representing the contents of an array of length n.
+                </li>
+                <li> You are required to print the length of the longest increasing subsequence of the array.
+                </li>
+              </ol>
+               <p>Reader, the subsequences of a string “abc” are listed in figure </p>
+              <div class="img"><img class="articleImages" name="longest_increasing_subsequence_1.png" alt="img" /></div>
+            <p>Hence, out of all the subsequences we have to find that subsequence which has the longest length and is in increasing order.
             </p>
-            <p>
-              We understand this topic by writing the first 1000 numbers in lexicographical order as seen in figure
-              </p>
-            <div class="img"><img class="articleImages" name="lexicographical_number_1.png" alt="img" /></div>
-            <p> shows the numbers in an increasing lexicographical order. Our order increases as we traverse through all the rows of the first column, then through all the rows of the second column and so on.
+            <p>We discuss this problem for the input array [10, 22, 9, 33, 21, 50, 41, 60, 80, 1].
             </p>
-            <p>We discuss the order from the beginning. Initially, 1, 10, 100 and 1000 are in lexicographical order because they just increase their length by adding zeros to themselves. 
-
-            </p>
-            <p>After 1000, 101 is present because the first two digits are the same in these numbers and for the third digit ‘0’ comes before ‘1’ in the dictionary.
-            </p>
-            <p>Next, notice that 11 comes 110 because the first 2 digits are the same but in the latter number we have a third digit too.
-            </p>
-            <p>We don’t have a four digit number parallel to 1000 for any other column, therefore we leave a space against it.
-            </p>
-            <p>Can you try to write the rest of the numbers in this order yourself now?
-            </p>
-            <p>We notice that the families of ‘1’ come before families of ‘2’ which come before families of ‘3’ and so on.
-            </p>
-            <p>In the family of ‘1’ as well, the family of ‘10’ comes before the family of ‘11’ which comes before the family of ‘12’ as marked in Figure</p>
-            <div class="img"><img class="articleImages" name="lexicographical_number_2.png" alt="img" /></div>
             </div>
            </div>
          <div class="approach" id="approach">
           <div class="sub-heading-1">Approach:</div>
-          <div class="sub-heading-2">RECURSION TREE:</div>
             <div class="content">
-              <p>Reader, look at figure  and try to comprehend this recursion tree.
-                .</p>
-                <div class="img"><img class="articleImages" name="lexicographical_number_3.png" alt="img" /></div>
-
-              <p>Initially, we have no digits. After that comes the family of 1, then 2 , and we go upto 9.
-
+              <p>You already know that any problem of dynamic programming is solved in 3 steps: Storage & Meaning, Direction and Traversal & Solve.
               </p>
-              <p>Again, this family of 1 has families of 10, 11, 12,…, 19 in lexicographical order. This level contains 2 digit numbers.
+            </div>
+              <div class="sub-heading-2">STORAGE & MEANING: </div>
+              <div class="content">
+              <p>We make a 1D dp array of size n as shown in figure
               </p>
-              <p>Next, for the next level of 3 digit numbers, 10 has a family of 100, 101,…, 109.  
+              <div class="img"><img class="articleImages" name="longest_increasing_subsequence_2.png" alt="img" /></div>
+              <p>The marked cell in figure 2 stores the length of the longest increasing subsequence (LIS) ending at 21 in the sub array [10, 22, 9, 33, 21].
               </p>
-              <p>This order can be understood better by comparing it with the recursion tree for alphabets from ‘a’ to ‘z’ as shown in figure </p>
-              <div class="img"><img class="articleImages" name="lexicographical_number_4.png" alt="img" /></div>
-
-
-              <p>We also suggest you watch the solution video for this portion for a better understanding.
-                <a href="https://youtu.be/gRo86WqFYSE" target="_blank">Lexicographical Numbers- Solution video
-                </a>
-              </p>
+             
             </div>  
-            <div class="sub-heading-2">HOW & WHY:</div>
+            <div class="sub-heading-2">DIRECTION:</div>
             <div class="content">
-              <p>Now that you have seen how the recursion tree for this problem works, we suggest you write the code for the same.</p>
-              <p>You can also refer to the code given below.</p>
+              <p>We notice that the smallest problem lies for the sub array [10] and the largest problem lies for the array [10,22,9,33,21,50,41,60,80,1]. 
+              </p>
+              <p>Hence, we move from left to right.
+              </p>
+            </div>
+            <div class="sub-heading-2">TRAVERSE & SOLVE:
+            </div>
+            <div class="content">
+              <ul>
+                <li>We start our traversal from element 10. We know that 10 can have 2 subsequences: either a blank subsequence or 10 itself.
+                </li><br><p>Hence, the increasing subsequence with the longest length ending at 10 is the 10 itself. So we store its length 1 in the cell. 
+                </p>
+                <div class="img"><img class="articleImages" name="longest_increasing_subsequence_3.png" alt="img" /></div>
+                <li>Let’s now move on to the next sub array [10, 22]. We know that all its subsequences are [- -, - 22, 10 -, 10 22]. Out of these subsequences the required increasing LIS of maximum length ending at 22 is [10 22] of length 2.
+                </li>
+                <div class="img"><img class="articleImages" name="longest_increasing_subsequence_4.png" alt="img" /></div>
+                <li>Similarly, for the subarray [10,22,9] the desired subsequence is 9 itself because 10 and 22 are greater than 9 and we want to form a subsequence where 9 is at the end i.e. 9 is the largest element. 
+                </li>
+                <div class="img"><img class="articleImages" name="longest_increasing_subsequence_5.png" alt="img" /></div>
+                <li>Now for the subarray [10, 22, 9, 33] we need to find the required subsequence ending at 33.
+                </li>
+                <p>We see that since 10 is smaller than 33, therefore, we can add 33 to the subsequence of 10 to form [10,33]. Similarly, 22 and 9 are also smaller than 33 therefore 33 can be added to their subsequences to form [10,22,33] and [9,33] respectively.
+                </p>
+                <p>Out of these three candidates, [10,22,33] has the longest length hence its length 3 will be stored in the corresponding cell.
+                </p>
+                <div class="img"><img class="articleImages" name="longest_increasing_subsequence_6.png" alt="img" /></div>
+                <li>For the subarray [10,22,33,21], to find the desired subsequence ending at 21 we first find the elements smaller than 21 which are 10 and 9.
+                </li>
+                <p>Hence, 21 can be added to the subsequences of 10 and 9 to form [10,21] and [9,21] respectively. So the largest length is 2.
+                </p>
+                <div class="img"><img class="articleImages" name="longest_increasing_subsequence_7.png" alt="img" /></div>
+                <li>We want you to fill the remaining array yourself . The resultant array should lool like figure.</li>
+                <div class="img"><img class="articleImages" name="longest_increasing_subsequence_7.png" alt="img" /></div>
+                <li>We are now aware of the subsequence following all the required rules for every element. Out of all these subsequences, the longest subsequence is of length 6 ending at the element 80. Hence 6 is printed.
+                </li>
+              </ul>
+              <p><b>Java Code</b></p>
             </div>
         </div> 
 
@@ -136,30 +149,37 @@
             <div class='editorialCode'>
               import java.io.*;
               import java.util.*;
-
+               
               public class Main {
-              public static void main(String[] args) {
-              Scanner scn = new Scanner(System.in);
-              int n = scn.nextInt();
-
-              for(int i=1;i<=9;i++){   //1
-              dfs(i,n);   //dfs = depth first search function
+               
+                  public static void main(String[] args) throws Exception {
+                      Scanner scn=new Scanner(System.in);
+                      int n=scn.nextInt();
+                      int[]arr=new int[n];
+                      for(int i=0;i < n;i++){
+                          arr[i]=scn.nextInt();
+                      }
+                      int omax=0;
+                      int[]dp=new int[n];
+                      for(int i=0;i< dp.length;i++){
+                          int max=0;
+                          for(int j=0;j< i;j++){
+                              if(arr[j] < arr[i]){
+                                  if(dp[j]>max){
+                                      max=dp[j];
+                                  }
+                              }
+                          }
+                          dp[i]=max+1;
+                          if(dp[i]>omax){
+                              omax=dp[i];
+                          }
+                      }
+                      System.out.println(omax);
+                  }
+               
               }
-              }
-
-              public static void dfs(int i, int n){  
-              if(i>n){   //2
-              return;
-              }
-              System.out.println(i); //3
-              for(int j=0;j< 10;j++){  //4
-              dfs(10*i + j,n);
-              }
-              }
-
-              }
- 
-
+              
 
             </div>
             <pre class='output'>
@@ -167,45 +187,48 @@
             <span type='text' class='language' style='width:40%;margin-right:5%'>java</span>;
             <span type='text' style='width:40%' class='canRunCode' name='canRunCode'>true</span>";
         </div>
-        <div class="pseudoCode article-box-shadow">
-        <div class="content">
-          <ol>
-            <li> We call the dfs function for all the numbers from 1 to 9. This call is equivalent to the second level from the top of the recursion tree</li>
-          <li>BASE CASE: If the family of the given number, ‘i’, goes beyond the number n, then we return from the function.</li>
-          <li>We print the digit which is in lexicographical order.</li>
-          <li>Now we need to apply the loop on the family of the given number, ‘i’. </li>
-          </ol>
-        </div>
-        </div>
-        <div class="content">
-        <p>Hence a loop for 0 to 9  is applied. The dfs is carried out for the parameter 10*i +j, where 10*i helps us in getting to the next level of the tree with an increased number of digits and adding j to it helps us in traversing through the entire family.
-      </p>
-      <p>The traversal of the recursion tree takes place as shown in figure</p>
-      <div class="img"><img class="articleImages" name="lexicographical_number_5.png" alt="img" /></div>
-      <p>We also want you to watch the solution video for an in depth grasp of the working of this code and the recursion tree.<a href="https://youtu.be/gRo86WqFYSE" target="_blank"> Lexicographical Numbers- Solution video
-      </a>
-      </p>
-      <p>
-        With this we sum up our discussion of the given question. We hope it was clear to you.
-        </p>
-        <p>All the best for an exciting future!<br>
-          Happy Coding!</p>
-     
+         <div class="analysis">
+          <div class="sub-heading-1">Time and Space Complexity:
+          </div>
+            <div class="sub-heading-2">TIME COMPLEXITY- O(n2)
+            </div>
+            <div class="content">
+             <p> The time complexity is quadratic due to the use of nested loops.
+
+            </p>
+            </div>
+             <div class="sub-heading-2">SPACE COMPLEXITY-O(n)
+
+            </div>
+            <div class="content">
+              <p>The space complexity is linear as auxillary space is required for the dp array.
+
+              </p>
+              <p>Reader, we now conclude the discussion of this problem. In case you had any doubts in it we recommend you to watch its solution video.
+
+              </p>
+              <div class="youtube-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/odrfUCS9sQk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              <p>All the best for an exciting future!<br>
+                Happy Coding!
+                </p>
+            </div>
+        
         </div>
     </div>
 
         <div class="article-tags">
 
           <div class="tag">Arrays </div>
-          <div class="tag"> Recursion and Backtracking.
+          <div class="tag"> Dynamic programming
+
           </div>
 
         </div>
         <div class="author">
           <div class="sub-heading-2">Author:
-                <span> Shreeya Gupta
-
-                </span>
+                <span>Shreeya Gupta</span>
           </div>
         </div>
         <div class="share-options">
